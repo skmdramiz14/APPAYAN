@@ -244,6 +244,29 @@ footer .mono{margin:0 auto 6px;width:30px;height:30px;font-size:1rem}
 .cgrid div{display:grid;justify-items:center;gap:4px;width:56px;text-align:center;font-size:.72rem;line-height:1.2;color:var(--text)}
 .cgrid i{width:28px;height:28px;border-radius:8px;background:var(--c);box-shadow:0 0 0 1px var(--hair)}
 .cnote{font-size:.8rem;color:var(--muted);margin-top:4px}
+
+/* welcome */
+#wel{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(20,15,6,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .45s}
+#wel.on{opacity:1}#wel[hidden]{display:none}
+.wcard{position:relative;width:min(100%,380px);text-align:center;padding:30px 24px 24px;border-radius:22px;background:linear-gradient(180deg,#fffaf0,#f6ecd2);border:1.5px solid #c9a043;box-shadow:0 24px 70px rgba(0,0,0,.45),0 0 0 6px rgba(201,160,67,.18);transform:translateY(24px) scale(.94);transition:transform .6s cubic-bezier(.2,1.2,.3,1);overflow:hidden}
+#wel.on .wcard{transform:none}
+.wcard::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);transform:translateX(-120%);animation:wshine 2.6s .6s ease-out 1}
+@keyframes wshine{to{transform:translateX(120%)}}
+.wx{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(138,100,16,.12);color:#6e5322;font-size:1.3rem;line-height:1;cursor:pointer}
+.wlogo{height:64px;width:auto;margin:0 auto 8px;display:block;animation:wpop .8s .2s both cubic-bezier(.2,1.4,.3,1)}
+@keyframes wpop{from{transform:scale(.3) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+.wgr{font-family:var(--display);font-size:1.05rem;color:#8c6a2a;letter-spacing:.04em}
+.wt{font-family:var(--display);font-size:1.7rem;line-height:1.15;color:#1f1b16;margin:6px 0 4px}
+.wt b{display:block;font-weight:400;letter-spacing:.1em;background:linear-gradient(135deg,#8a6410,#c9a043 50%,#8a6410);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.5px #8a6410}
+.wsub{font-size:.95rem;color:#4a4136;margin:10px 0 16px;line-height:1.55}
+.wpuja{display:inline-block;margin:0 0 12px;padding:5px 14px;border-radius:99px;background:#fff;border:1px solid var(--hair);font-size:.85rem;color:#8c6a2a;font-weight:600}
+.wchips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.wchips span{font-size:.74rem;padding:5px 10px;border-radius:99px;border:1px solid var(--hair);color:#6e5322;background:rgba(255,255,255,.7)}
+.wb{display:flex;flex-direction:column;gap:9px}
+.wb a,.wb button{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;border-radius:12px;font:inherit;font-weight:700;font-size:.98rem;text-decoration:none;cursor:pointer}
+.wb .g{border:0;color:#1a1408;background:linear-gradient(135deg,#e9c76f,#c09434);box-shadow:0 6px 18px rgba(176,134,40,.45)}
+.wb .w{border:1.5px solid #1f9d55;color:#1f7a45;background:#fff}
+@media(prefers-reduced-motion:reduce){#wel,.wcard,.wlogo{transition:none;animation:none}.wcard::before{animation:none}}
 </style>
 
 <header class="top" id="top">
@@ -5322,6 +5345,41 @@ addEventListener("hashchange",()=>{const h=location.hash;
   else if(!$("#pd").hidden)closePD()});
 if(location.hash.startsWith("#p-")&&PROD[location.hash.slice(3)])openPD(location.hash.slice(3),false);
 renderTabs();renderList();sync();
+</script>
+
+<div id="wel" hidden role="dialog" aria-modal="true" aria-labelledby="wt">
+  <div class="wcard">
+    <button class="wx" id="wx" aria-label="বন্ধ করুন">&times;</button>
+    <img class="wlogo" src="logo.png" alt="Appayan">
+    <div class="wgr" id="wgr">স্বাগতম 🙏</div>
+    <h2 class="wt" id="wt">Welcome to<b>APPAYAN</b>Hardware &amp; Tiles</h2>
+    <div class="wpuja" id="wpuja" hidden>🪔 শারদীয়ার প্রীতি ও শুভেচ্ছা</div>
+    <p class="wsub">আপনার স্বপ্নের Bathroom ও ঘরের জন্য Designer Sanitary, Tiles ও Hardware, সবই এক ছাদের নিচে।</p>
+    <div class="wchips"><span>✨ Designer Collection</span><span>🚚 Home Delivery</span><span>💬 WhatsApp Quotation</span></div>
+    <div class="wb">
+      <button class="g" id="wcol">Collection দেখুন →</button>
+      <a class="w" id="wwa" href="#" target="_blank" rel="noopener">WhatsApp এ দাম জানুন</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var w=document.getElementById("wel");if(!w)return;
+  if(location.hash.startsWith("#p-"))return;
+  var key="appayan_welcome_day",today=new Date().toISOString().slice(0,10);
+  try{if(localStorage.getItem(key)===today)return}catch(e){}
+  var d=new Date(),h=d.getHours(),g=h>=5&&h<12?"শুভ সকাল":h>=12&&h<16?"শুভ দুপুর":h>=16&&h<18?"শুভ অপরাহ্ণ":"শুভ সন্ধ্যা";
+  document.getElementById("wgr").textContent=g+" 🙏 স্বাগতম";
+  var t=d.getTime();if(t>=new Date("2026-10-10T00:00:00+05:30")&&t<new Date("2026-10-27T00:00:00+05:30"))document.getElementById("wpuja").hidden=false;
+  var wa=document.getElementById("heroWa");document.getElementById("wwa").href=wa?wa.href:"https://wa.me/918926528460";
+  function close(then){w.classList.remove("on");try{localStorage.setItem(key,today)}catch(e){}setTimeout(function(){w.hidden=true;document.body.style.overflow="";if(then)then()},350)}
+  document.getElementById("wx").onclick=function(){close()};
+  w.addEventListener("click",function(e){if(e.target===w)close()});
+  document.getElementById("wcol").onclick=function(){close(function(){var s=document.getElementById("designer");if(s)s.scrollIntoView({behavior:"smooth"})})};
+  document.getElementById("wwa").addEventListener("click",function(){close()});
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&!w.hidden)close()});
+  setTimeout(function(){w.hidden=false;document.body.style.overflow="hidden";requestAnimationFrame(function(){w.classList.add("on")})},700);
+})();
 </script>
 
 </html>
