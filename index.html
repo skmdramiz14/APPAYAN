@@ -5376,7 +5376,7 @@ renderTabs();renderList();sync();
   function close(then){w.classList.remove("on");try{localStorage.setItem(key,today)}catch(e){}setTimeout(function(){w.hidden=true;document.body.style.overflow="";if(then)then()},350)}
   document.getElementById("wx").onclick=function(){close()};
   w.addEventListener("click",function(e){if(e.target===w)close()});
-  document.getElementById("wcol").onclick=function(){close(function(){var s=document.getElementById("designer");if(s)s.scrollIntoView({behavior:"smooth"})})};
+  document.getElementById("wcol").onclick=function(){close(function(){scrollTo({top:0,behavior:"smooth"})})};
   document.getElementById("wwa").addEventListener("click",function(){close()});
   addEventListener("keydown",function(e){if(e.key==="Escape"&&!w.hidden)close()});
   setTimeout(function(){w.hidden=false;document.body.style.overflow="hidden";requestAnimationFrame(function(){w.classList.add("on")})},700);
