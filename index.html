@@ -1,0 +1,5308 @@
+<title>Appayan Hardware & Tiles</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Bengali:wght@500;600&family=Hind+Siliguri:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: single-theme black & brass showroom. Full-bleed photo hero, then a narrow centred column with hairline brass rules, horizontal designer rail, and a glass quotation bar. */
+:root{
+  --ink:#f6f2eb; --panel:#ffffff; --panel-2:#fbf8f3; --stone:#ebe4d8;
+  --text:#1f1b16; --muted:#6b6255; --faint:#958b7d;
+  --gold:#a8813a; --gold-hi:#8c6a2a; --gold-lo:#6e5322; --g1:#e3c789; --g2:#b98f42;
+  --hair:rgba(168,129,58,.32); --wa:#1f9d55;
+  --display:"Marcellus","Noto Serif Bengali",Georgia,serif;
+  --bn-display:"Noto Serif Bengali","Marcellus",serif;
+  --body:"Hind Siliguri",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-weight:400;font-size:16px;line-height:1.6}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+.wrap{max-width:560px;margin:0 auto;padding-inline:20px;padding-block:0 110px}
+.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);font-weight:600}
+.rule{display:flex;align-items:center;gap:12px;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:var(--hair)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;padding:12px 20px;background:rgba(246,242,235,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)!important;
+  display:flex;align-items:center;gap:12px;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(246,242,235,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--hair)}
+.mono{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);color:var(--gold-hi);font-size:1.25rem;transform:rotate(45deg);flex:none}
+.mono span{transform:rotate(-45deg)}
+.brand{min-width:0;line-height:1.1}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.14em;display:block}
+.brand small{font-size:.64rem;letter-spacing:.22em;color:var(--gold-hi);font-weight:600;text-transform:uppercase}
+.top .call{margin-left:auto;border:1px solid var(--hair);color:var(--gold-hi);border-radius:999px;padding:7px 14px;font-size:.82rem;text-decoration:none;white-space:nowrap;background:rgba(255,255,255,.7)}
+
+/* hero */
+.hero{position:relative}
+.hero .hph{position:relative;height:min(78vw,380px);overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.hero .hph::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(180deg,rgba(246,242,235,0),var(--ink))}
+.hero .in{max-width:560px;margin:0 auto;width:100%;padding:8px 20px 30px}
+.hero h1{font-family:var(--display);font-size:2.3rem;color:var(--text);line-height:1.05;letter-spacing:.02em;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--gold-hi)}
+.hero p{font-family:var(--body);font-size:1.08rem;font-weight:500;color:var(--text);margin:14px 0 22px;max-width:30ch;line-height:1.55}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;font-weight:500;text-decoration:none;border:0;border-radius:2px;font-size:.95rem;letter-spacing:.02em}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:#1f1b16;font-weight:600;box-shadow:0 6px 18px -8px rgba(140,106,42,.6)}
+.btn.ghost{border:1px solid var(--hair);color:var(--text);background:rgba(255,255,255,.75)}
+.btn.wa{background:var(--wa);color:#fff}
+
+/* promise strip */
+.promise{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--hair);margin-top:8px}
+.promise div{padding:16px 6px;text-align:center;display:grid;gap:2px}
+.promise div+div{border-left:1px solid var(--hair)}
+.promise b{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--gold-hi)}
+.promise small{font-size:.75rem;color:var(--muted);line-height:1.3}
+
+/* sections */
+section{margin-top:56px;scroll-margin-top:80px}
+.sh{text-align:center;margin-bottom:22px;display:grid;gap:8px}
+.sh h2{font-family:var(--display);font-size:1.9rem;letter-spacing:.02em}
+.sh p{margin:0;color:var(--muted);font-size:.9rem}
+
+/* designer rail */
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:0 20px 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.fcard{flex:0 0 72%;max-width:280px;scroll-snap-align:center;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--hair);box-shadow:0 12px 30px -18px rgba(60,45,20,.35)}
+.fcard .ph{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--stone)}
+.fcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.fcard .tag{position:absolute;top:12px;left:12px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;padding:5px 9px;background:rgba(255,255,255,.9);color:var(--gold-hi);border:1px solid var(--hair)}
+.fcard .b{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.fcard .acts{margin-top:auto}
+.fcard .sw{flex-wrap:nowrap;gap:6px}.fcard .dot{width:22px;height:22px;flex:none}
+.fcard .spec{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fcard h3{font-family:var(--display);font-size:1.2rem;line-height:1.25}
+.fcard .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fcard .acts .btn{padding:10px 8px;font-size:.85rem}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+.dots i{width:18px;height:2px;background:var(--stone)}
+.dots i.on{background:var(--gold)}
+
+/* catalogue */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--hair);overflow-x:auto;scrollbar-width:none;margin-bottom:18px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;background:none;border:0;color:var(--muted);padding:10px 12px;font-size:.9rem;letter-spacing:.04em;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-pressed="true"]{color:var(--gold-hi);border-color:var(--gold)}
+.list{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.it{background:var(--panel);display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px}
+.it svg{width:30px;height:30px;color:var(--gold)}
+.it .thumb{width:44px;height:44px;object-fit:cover;display:block;border:1px solid var(--hair)}
+.it .cd{font-size:.7rem;letter-spacing:.08em;color:var(--gold-hi);font-weight:600}
+.it .t{min-width:0}
+.it h3{font-family:var(--body);font-weight:500;font-size:1rem}
+.it p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.35}
+.qty{display:flex;align-items:center;gap:4px}
+.qty button{width:30px;height:30px;border:1px solid var(--hair);background:var(--panel-2);color:var(--gold-hi);border-radius:2px}
+.qty output{min-width:22px;text-align:center;font-variant-numeric:tabular-nums}
+.qty .add{width:auto;padding:0 12px;font-size:.8rem;letter-spacing:.04em}
+
+/* offers */
+.offers{display:grid;gap:12px}
+.offer{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px;border:1px solid var(--hair);
+  background:linear-gradient(120deg,var(--panel-2),var(--panel))}
+.offer .k{font-family:var(--display);font-size:1.6rem;color:var(--gold-hi);line-height:1;min-width:64px;padding-right:16px;border-right:1px solid var(--hair)}
+.offer b{display:block;font-weight:500}
+.offer small{color:var(--muted)}
+.note{color:var(--faint);font-size:.78rem;text-align:center;margin-top:12px}
+
+/* enquiry */
+.form{border:1px solid var(--hair);background:var(--panel);padding:20px;display:grid;gap:16px}
+.form label{display:grid;gap:6px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.form input,.form textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transform:none;padding:10px 0;border:0;border-bottom:1px solid var(--hair);
+  background:transparent;color:var(--text);width:100%;border-radius:0}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{flex-direction:row;display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:.88rem;color:var(--text);
+  border:1px solid var(--hair);padding:7px 12px;border-radius:999px}
+.seg input{accent-color:var(--gold);width:auto}
+.basket{border:1px dashed var(--hair);padding:12px 14px;font-size:.9rem}
+.basket ul{margin:6px 0 0;padding-left:18px}
+.basket .empty{color:var(--faint)}
+
+/* contact */
+.info{border:1px solid var(--hair);background:var(--panel)}
+.row{display:flex;gap:14px;align-items:center;padding:16px}
+.row+.row{border-top:1px solid var(--hair)}
+.row svg{width:22px;height:22px;color:var(--gold);flex:none}
+.row div{min-width:0;flex:1}
+.row small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.num{font-family:var(--display);font-size:1.5rem;letter-spacing:.08em;user-select:all;font-variant-numeric:tabular-nums}
+.mini{border:1px solid var(--hair);background:none;color:var(--gold-hi);padding:6px 12px;font-size:.8rem;text-decoration:none;border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chips span{border:1px solid var(--hair);color:var(--text);padding:2px 10px;font-size:.85rem;border-radius:999px}
+
+/* variants */
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.dot{width:26px;height:26px;border-radius:50%;background:var(--c);border:2px solid var(--panel);box-shadow:0 0 0 1px var(--hair);padding:0;cursor:pointer}
+.dot.on{box-shadow:0 0 0 2px var(--gold)}
+.sw.sm{margin-top:6px;gap:6px}.sw.sm .dot{width:20px;height:20px}
+.vname{font-size:.85rem;color:var(--muted)}
+.spec{margin:0;color:var(--muted);font-size:.8rem;line-height:1.4}
+/* product page */
+[data-open]{cursor:pointer}
+.fcard .ph .more{position:absolute;right:12px;bottom:12px;font-size:.72rem;letter-spacing:.06em;padding:5px 10px;background:rgba(255,255,255,.92);color:var(--gold-hi);border:1px solid var(--hair)}
+.it{grid-template-columns:56px 1fr auto}
+.it>svg{justify-self:center}
+.it .thumb{width:56px;height:56px}
+.pd{position:fixed;inset:0;z-index:20;background:var(--ink);overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.pd-x{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:16px;z-index:21;width:42px;height:42px;border-radius:50%;border:1px solid var(--hair);background:rgba(255,255,255,.92);color:var(--text);font-size:1.4rem;line-height:1;display:grid;place-items:center;padding:0}
+.pd-ph{max-width:560px;margin:0 auto;aspect-ratio:2/3;background:var(--stone);overflow:hidden}
+.pd-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-in{max-width:560px;margin:0 auto;padding:22px 20px;display:grid;gap:16px}
+.pd-ph{position:relative}
+.pd-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.pd-track::-webkit-scrollbar{display:none}
+.pd-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center;scroll-snap-stop:always}
+.pd-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.pd-dots i{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(0,0,0,.18);transition:width .2s,background .2s}
+.pd-dots i.on{background:#fff;width:20px}
+.pd-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:1px solid var(--hair);background:rgba(255,255,255,.88);color:var(--text);font-size:1.4rem;line-height:1;display:grid;place-items:center;padding:0;cursor:pointer}
+.pd-nav.prev{left:10px}.pd-nav.next{right:10px}
+@media (hover:none){.pd-nav{display:none}}
+.pd-about{margin:0;line-height:1.6}
+.pd-badge{justify-self:start;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#1f1b16;font-weight:600}
+.feats{border:1px solid var(--hair);background:var(--panel)}
+.feats div{padding:12px 14px;display:grid;gap:2px}
+.feats div+div{border-top:1px solid var(--hair)}
+.feats b{font-weight:600;font-size:.95rem}
+.feats span{color:var(--muted);font-size:.88rem}
+.perks{display:flex;flex-wrap:wrap;gap:6px}
+.perks span{border:1px solid var(--hair);padding:3px 10px;border-radius:999px;font-size:.82rem}
+.pd-tag{font-family:var(--display);color:var(--gold-hi);text-align:center;font-size:1.05rem;padding-block:4px}
+.pd-in>*{min-width:0}
+.pd-in h2{font-family:var(--display);font-size:1.9rem;line-height:1.15}
+.pd-code{font-family:var(--display);font-size:1.15rem;color:var(--gold-hi);letter-spacing:.06em}
+.vthumbs{position:relative;display:flex;gap:8px;overflow-x:auto;margin-inline:-20px;padding:2px 20px 6px;scrollbar-width:none}
+.vthumbs::-webkit-scrollbar{display:none}
+.vt{flex:0 0 62px;border:1px solid var(--hair);background:var(--panel);padding:0;text-align:center;cursor:pointer;color:var(--text)}
+.vt img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.vt span{display:block;font-size:.72rem;padding:3px 0;letter-spacing:.04em}
+.vt.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.vchips{display:flex;flex-wrap:wrap;gap:8px}
+.vchip{display:flex;align-items:center;gap:8px;border:1px solid var(--hair);background:var(--panel);color:var(--text);border-radius:999px;padding:6px 14px 6px 7px;font-size:.88rem;cursor:pointer}
+.vchip i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px var(--hair)}
+.vchip.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.specs{margin:0;border:1px solid var(--hair);background:var(--panel)}
+.specs div{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:12px 14px}
+.specs div+div{border-top:1px solid var(--hair)}
+.specs dt{color:var(--muted);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.specs dd{margin:0}
+.pd-note{margin:0;color:var(--muted);font-size:.85rem}
+.pd-rel{display:flex;gap:10px;overflow-x:auto;margin-inline:-20px;padding:0 20px 4px;scrollbar-width:none}
+.pd-rel::-webkit-scrollbar{display:none}
+.rel{flex:0 0 120px;background:var(--panel);border:1px solid var(--hair);text-align:left;padding:0;color:var(--text);cursor:pointer}
+.rel img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.rel span{display:block;padding:8px;font-size:.8rem;line-height:1.3}
+.pd-bar{position:fixed;left:0;right:0;bottom:0;z-index:21;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--hair);padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px))}
+.pd-bar .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.toast{z-index:30}
+footer{margin-top:56px;text-align:center;display:grid;gap:10px;color:var(--faint);font-size:.75rem;letter-spacing:.1em}
+footer .mono{margin:0 auto 6px;width:30px;height:30px;font-size:1rem}
+
+/* bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--hair);padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px))}
+.bar .in{max-width:560px;margin:0 auto;display:flex;gap:12px;align-items:center}
+.bar .count{flex:1;min-width:0;font-size:.82rem;color:var(--muted);line-height:1.3}
+.bar .count b{color:var(--gold-hi);font-weight:500;display:block;font-size:.95rem}
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:var(--text);color:var(--ink);padding:9px 16px;font-size:.88rem;z-index:11;border-radius:2px;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+  .hero .in>*{animation:rise .8s both}
+  .hero .in>*:nth-child(2){animation-delay:.1s}.hero .in>*:nth-child(3){animation-delay:.2s}.hero .in>*:nth-child(4){animation-delay:.3s}
+  .fcard:hover img{transform:scale(1.04)}
+}
+@keyframes rise{from{transform:translateY(12px);opacity:.01}to{transform:none;opacity:1}}
+@media (max-width:360px){.hero h1{font-size:2.2rem}}
+.mstrip{display:flex;align-items:center;gap:4px;margin-top:6px}
+.mstrip button{width:28px;height:28px;padding:0;border:1px solid var(--hair);background:var(--panel);flex:none;cursor:pointer}
+.mstrip button.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.mstrip img{width:100%;height:100%;object-fit:cover;display:block}
+.mstrip span,.cdots span{white-space:nowrap;font-size:.78rem;color:var(--muted)}
+.cdots{display:flex;align-items:center;gap:4px;margin-top:6px}
+.cdots i{width:13px;height:13px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px var(--hair);flex:none}
+.cgrp{margin-bottom:12px}.cgrp>b{display:block;font-size:.78rem;letter-spacing:.08em;color:var(--muted);font-weight:500;margin-bottom:6px}
+.cgrid{display:flex;flex-wrap:wrap;gap:10px 12px}
+.cgrid div{display:grid;justify-items:center;gap:4px;width:56px;text-align:center;font-size:.72rem;line-height:1.2;color:var(--text)}
+.cgrid i{width:28px;height:28px;border-radius:8px;background:var(--c);box-shadow:0 0 0 1px var(--hair)}
+.cnote{font-size:.8rem;color:var(--muted);margin-top:4px}
+</style>
+
+<header class="top" id="top">
+  <div class="mono"><span>A</span></div>
+  <div class="brand"><b>APPAYAN</b><small>Hardware &amp; Tiles</small></div>
+  <a class="call" href="tel:+918926528460">Call 8926528460</a>
+</header>
+
+<div class="hero">
+  <div class="hph"><img src="mosaic.jpg" alt="Mosaic and gold designer commode in a marble bathroom"></div>
+  <div class="in">
+    <div class="eyebrow">Sanitary · Tiles · Hardware</div>
+    <h1>Bathrooms crafted in <em>marble &amp; gold</em></h1>
+    <p>আপনার পছন্দের Designer Sanitary ও Tiles, আকর্ষণীয় দামে।</p>
+    <div class="cta">
+      <a class="btn gold" href="#designer">Collection দেখুন</a>
+      <a class="btn ghost" id="heroWa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        দাম জানুন</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="promise">
+    <div><b>Wholesale</b><small>পাইকারি ও খুচরা</small></div>
+    <div><b>Designer</b><small>Black, Gold, Mosaic</small></div>
+    <div><b>Delivery</b><small>বর্ধমান সহ ৪ জেলা</small></div>
+  </div>
+
+  <section id="designer">
+    <div class="sh"><div class="rule"><span class="eyebrow">Signature</span></div><h2>Designer Collection</h2><p>দোকানে স্টকে আছে। Code বলে অর্ডার করুন।</p></div>
+    <div class="rail" id="rail"></div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section id="catalogue">
+    <div class="sh"><div class="rule"><span class="eyebrow">Catalogue</span></div><h2>সব Product</h2><p>পরিমাণ বেছে এক মেসেজে Quotation নিন</p></div>
+    <div class="tabs" role="group" aria-label="Category" id="tabs"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section id="offers">
+    <div class="sh"><div class="rule"><span class="eyebrow">Offers</span></div><h2>চলতি অফার</h2></div>
+    <div class="offers" id="offerList"></div>
+    <p class="note">অফারের শর্ত ও মেয়াদ জানতে WhatsApp বা Call করুন</p>
+  </section>
+
+  <section id="enquiry">
+    <div class="sh"><div class="rule"><span class="eyebrow">Quotation</span></div><h2>দাম জিজ্ঞাসা করুন</h2><p>উত্তর পাবেন WhatsApp-এ</p></div>
+    <form class="form" id="form">
+      <div class="basket" id="basket"></div>
+      <label for="name">আপনার নাম<input id="name" autocomplete="name" placeholder="যেমন: রাহুল দাস"></label>
+      <label for="place">গ্রাম / শহর<input id="place" placeholder="যেমন: মন্তেশ্বর"></label>
+      <label>আপনি
+        <div class="seg">
+          <label for="w1"><input type="radio" name="who" id="w1" value="নিজের বাড়ির জন্য" checked>বাড়ির জন্য</label>
+          <label for="w2"><input type="radio" name="who" id="w2" value="Contractor/Plumber">Contractor</label>
+          <label for="w3"><input type="radio" name="who" id="w3" value="Retailer (পাইকারি)">Retailer</label>
+        </div></label>
+      <label for="msg">আর কিছু জানাতে চান<textarea id="msg" rows="2" placeholder="যেমন: ২টো বাথরুমের পুরো সেট"></textarea></label>
+      <button class="btn gold" type="submit">WhatsApp-এ Quotation চান</button>
+    </form>
+  </section>
+
+  <section id="dokan">
+    <div class="sh"><div class="rule"><span class="eyebrow">Visit</span></div><h2>দোকান ও যোগাযোগ</h2></div>
+    <div class="info">
+      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
+        <div><small>Call / WhatsApp</small><span class="num" id="phone">8926528460</span></div>
+        <button class="mini" type="button" id="copyBtn">Copy</button></div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div><small>Showroom</small>Appayan Hardware &amp; Tiles<br><span style="color:var(--muted)">মন্তেশ্বর, পূর্ব বর্ধমান</span></div>
+        <a class="mini" href="https://www.google.com/maps/search/?api=1&query=Appayan+Hardware+and+Tiles+Manteswar" target="_blank" rel="noopener">Map</a></div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 6h12v10H2zM14 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
+        <div><small>পাইকারি ও খুচরা ডেলিভারি</small>
+          <div class="chips"><span>বর্ধমান</span><span>হুগলি</span><span>বাঁকুড়া</span><span>পার্শ্ববর্তী জেলা</span></div></div></div>
+    </div>
+  </section>
+
+  <footer><div class="mono"><span>A</span></div>APPAYAN HARDWARE &amp; TILES · মন্তেশ্বর</footer>
+</div>
+
+<div class="pd" id="pd" hidden role="dialog" aria-modal="true" aria-label="Product বিস্তারিত">
+  <button class="pd-x" id="pdX" type="button" aria-label="বন্ধ করুন">×</button>
+  <div id="pdBody"></div>
+  <div class="pd-bar"><div class="in">
+    <button class="btn ghost" id="pdAdd" type="button">+ Quotation</button>
+    <a class="btn gold" id="pdAsk" href="#" target="_blank" rel="noopener">দাম জানুন</a>
+  </div></div>
+</div>
+<div class="bar"><div class="in">
+  <div class="count" id="count"></div>
+  <a class="btn gold" id="barWa" href="#" target="_blank" rel="noopener">WhatsApp Quotation</a>
+</div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script id="catalog" type="application/json">
+{
+ "featured": [
+  {
+   "name": "Zoya One Piece",
+   "tag": "Golden Series",
+   "thumbs": true,
+   "icon": "commode",
+   "spec": "Golden Series · 660×380×730 mm · S-trap 225 / P-trap 180 mm · Wash down flushing",
+   "desc": "Golden Series · 660×380×730 mm · Wash down flushing",
+   "about": "Zoya is where royal elegance meets modern performance. Designed to elevate your bathroom with luxury and lasting comfort.",
+   "specs": [
+    [
+     "Model",
+     "Zoya One Piece"
+    ],
+    [
+     "Series",
+     "Golden Series"
+    ],
+    [
+     "Size",
+     "660 × 380 × 730 mm"
+    ],
+    [
+     "Trap",
+     "S-trap 225 mm / P-trap 180 mm"
+    ],
+    [
+     "Flushing",
+     "Wash down flushing"
+    ]
+   ],
+   "features": [
+    [
+     "Premium Design",
+     "Stunning finish with elegant golden accents for a luxurious look."
+    ],
+    [
+     "Efficient Flush",
+     "Wash down flushing system ensures powerful cleaning with every use."
+    ],
+    [
+     "Comfort & Durability",
+     "Ergonomically designed for maximum comfort and built to last."
+    ],
+    [
+     "Easy to Clean",
+     "Smooth glazed surface for effortless cleaning and hygiene."
+    ]
+   ],
+   "perks": [
+    "Premium Quality",
+    "Water Efficient",
+    "Hygienic Design",
+    "Long Lasting Performance"
+   ],
+   "tagline": "Luxury That Reflects You",
+   "variants": [
+    {
+     "code": "4010",
+     "color": "Black, gold swirl",
+     "img": "zoya4010.jpg"
+    },
+    {
+     "code": "4451",
+     "color": "Black marble, gold",
+     "img": "zoya4451.jpg"
+    },
+    {
+     "code": "4452",
+     "color": "Gold honeycomb & black",
+     "img": "zoya4452.jpg"
+    },
+    {
+     "code": "4251",
+     "color": "Coral, black marble",
+     "img": "zoya4251.jpg"
+    },
+    {
+     "code": "4252",
+     "color": "Coral, gold honeycomb",
+     "img": "zoya4252.jpg"
+    },
+    {
+     "code": "4253",
+     "color": "Coral, circle pattern",
+     "img": "zoya4253.jpg"
+    },
+    {
+     "code": "4254",
+     "color": "Coral, geometric pattern",
+     "img": "zoya4254.jpg"
+    },
+    {
+     "code": "4255",
+     "color": "Coral, floral",
+     "img": "zoya4255.jpg"
+    },
+    {
+     "code": "4256",
+     "color": "Coral, honeycomb",
+     "img": "zoya4256.jpg"
+    },
+    {
+     "code": "4257",
+     "color": "Coral, gold lines",
+     "img": "zoya4257.jpg"
+    },
+    {
+     "code": "4152",
+     "color": "Green marble, gold",
+     "img": "zoya4152.jpg"
+    },
+    {
+     "code": "4153",
+     "color": "Teal, gold floral",
+     "img": "zoya4153.jpg"
+    },
+    {
+     "code": "4154",
+     "color": "Green, gold ornament",
+     "img": "zoya4154.jpg"
+    },
+    {
+     "code": "4155",
+     "color": "Green & gold honeycomb",
+     "img": "zoya4155.jpg"
+    },
+    {
+     "code": "4351",
+     "color": "Blue marble, gold",
+     "img": "zoya4351.jpg"
+    },
+    {
+     "code": "4352",
+     "color": "Blue, gold lines",
+     "img": "zoya4352.jpg"
+    },
+    {
+     "code": "4501",
+     "color": "Steel blue, gold marble",
+     "img": "zoya4501.jpg"
+    },
+    {
+     "code": "4510",
+     "color": "Steel blue, gold line",
+     "img": "zoya4510.jpg"
+    }
+   ]
+  },
+  {
+   "name": "Zudio One Piece",
+   "tag": "Golden Series",
+   "thumbs": true,
+   "icon": "commode",
+   "badge": "Premium Quality Assured",
+   "spec": "Golden Series · 655×380×750 mm · S-trap 225 / P-trap 180 mm · Wash down flushing",
+   "desc": "Golden Series · 655×380×750 mm · Wash down flushing",
+   "about": "Zudio is where royal elegance meets modern performance. Designed to elevate your bathroom with luxury and lasting comfort.",
+   "specs": [
+    [
+     "Model",
+     "Zudio One Piece"
+    ],
+    [
+     "Series",
+     "Golden Series"
+    ],
+    [
+     "Size",
+     "655 × 380 × 750 mm"
+    ],
+    [
+     "Trap",
+     "S-trap 225 mm / P-trap 180 mm"
+    ],
+    [
+     "Flushing",
+     "Wash down flushing"
+    ]
+   ],
+   "features": [
+    [
+     "Premium Quality & Durability",
+     "Crafted with high-grade materials for long lasting performance."
+    ],
+    [
+     "Superior Flush Performance",
+     "Deep and efficient cleaning with every flush."
+    ],
+    [
+     "Sleek Design for Modern Bathrooms",
+     "Contemporary one piece design for a seamless and sophisticated look."
+    ],
+    [
+     "Powerful Wash Down Flush",
+     "Deep clean with every flush."
+    ],
+    [
+     "High-Gloss Finish",
+     "Easy to clean & long lasting shine."
+    ],
+    [
+     "Water Efficient",
+     "Saves water, saves future."
+    ]
+   ],
+   "perks": [
+    "Eco-Friendly Design",
+    "Long Lasting Performance",
+    "Easy Maintenance",
+    "Better Hygiene, Better Living"
+   ],
+   "tagline": "Inspired by Nature. Designed for You.",
+   "variants": [
+    {
+     "code": "4600",
+     "color": "Black, gold lattice",
+     "img": "zudio4600.jpg"
+    },
+    {
+     "code": "4601",
+     "color": "Black, gold marble",
+     "img": "zudio4601.jpg"
+    },
+    {
+     "code": "4602",
+     "color": "Black-grey marble",
+     "img": "zudio4602.jpg"
+    },
+    {
+     "code": "4700",
+     "color": "Coral lattice",
+     "img": "zudio4700.jpg"
+    }
+   ]
+  },
+  {
+   "name": "Zebra One Piece",
+   "tag": "Designer Series",
+   "spec": "Designer Series · 660×400×670 mm · S-trap 225 mm / P-trap 180 mm · Wash down flushing",
+   "desc": "Designer Series · 660×400×670 mm · Wash down flushing",
+   "icon": "commode",
+   "variants": [
+    {
+     "code": "7001",
+     "color": "Black",
+     "hex": "#15110f",
+     "img": "zebra7001.jpg"
+    },
+    {
+     "code": "7015",
+     "color": "Red",
+     "hex": "#b8433f",
+     "img": "zebra7015.jpg"
+    },
+    {
+     "code": "7028",
+     "color": "Green",
+     "hex": "#1f6b4f",
+     "img": "zebra7028.jpg"
+    },
+    {
+     "code": "7011",
+     "color": "Navy Blue",
+     "hex": "#27408b",
+     "img": "zebra7011.jpg"
+    },
+    {
+     "code": "7023",
+     "color": "Yellow",
+     "hex": "#f2d21c",
+     "img": "zebra7023.jpg"
+    },
+    {
+     "code": "7012",
+     "color": "Sky Blue",
+     "hex": "#4a9fd8",
+     "img": "zebra7012.jpg"
+    },
+    {
+     "code": "7026",
+     "color": "Teal Blue",
+     "hex": "#0f6b86",
+     "img": "zebra7026.jpg"
+    },
+    {
+     "code": "7024",
+     "color": "Brown",
+     "hex": "#8a5a3b",
+     "img": "zebra7024.jpg"
+    }
+   ],
+   "specs": [
+    [
+     "Model",
+     "Zebra One Piece"
+    ],
+    [
+     "Series",
+     "Designer Series"
+    ],
+    [
+     "Size",
+     "660 × 400 × 670 mm"
+    ],
+    [
+     "Trap",
+     "S-trap 225 mm / P-trap 180 mm"
+    ],
+    [
+     "Flushing",
+     "Wash down flushing"
+    ]
+   ],
+   "badge": "Premium Quality Assured",
+   "about": "Zebra one piece is where modern design meets superior performance. Engineered for comfort, crafted for luxury.",
+   "features": [
+    [
+     "Wash Down Flushing",
+     "Efficient water flow for superior hygiene."
+    ],
+    [
+     "Ergonomic Design",
+     "Comfortable height for better posture."
+    ],
+    [
+     "Modern Aesthetic",
+     "Unique zebra shape for a stylish look."
+    ],
+    [
+     "Premium Quality",
+     "Crafted with perfection for a luxurious feel."
+    ],
+    [
+     "Durable & Reliable",
+     "High quality material for long lasting use."
+    ],
+    [
+     "Easy to Clean",
+     "Smooth surface for effortless cleaning."
+    ]
+   ],
+   "perks": [
+    "Eco-Friendly Material",
+    "Long Lasting Performance",
+    "Easy Maintenance",
+    "Better Hygiene, Better Living"
+   ],
+   "tagline": "Inspired by Design. Driven by Excellence."
+  },
+  {
+   "img": "c4010.jpg",
+   "name": "Black Gold One-piece Commode",
+   "code": "4010"
+  },
+  {
+   "img": "basin.jpg",
+   "name": "Black Marble Pedestal Basin",
+   "tag": "Designer Basin"
+  },
+  {
+   "img": "mosaic.jpg",
+   "name": "Mosaic Gold Luxury Commode",
+   "tag": "Luxury"
+  },
+  {
+   "name": "Designer Round Damaru",
+   "tag": "Crera",
+   "thumbs": true,
+   "icon": "basin",
+   "variants": [
+    {
+     "code": "R-01",
+     "color": "Design 1",
+     "img": "crr01.jpg"
+    },
+    {
+     "code": "R-02",
+     "color": "Design 2",
+     "img": "crr02.jpg"
+    },
+    {
+     "code": "R-03",
+     "color": "Design 3",
+     "img": "crr03.jpg"
+    },
+    {
+     "code": "R-04",
+     "color": "Design 4",
+     "img": "crr04.jpg"
+    },
+    {
+     "code": "R-05",
+     "color": "Design 5",
+     "img": "crr05.jpg"
+    },
+    {
+     "code": "R-06",
+     "color": "Design 6",
+     "img": "crr06.jpg"
+    },
+    {
+     "code": "R-07",
+     "color": "Design 7",
+     "img": "crr07.jpg"
+    },
+    {
+     "code": "R-08",
+     "color": "Design 8",
+     "img": "crr08.jpg"
+    },
+    {
+     "code": "R-09",
+     "color": "Design 9",
+     "img": "crr09.jpg"
+    },
+    {
+     "code": "R-10",
+     "color": "Design 10",
+     "img": "crr10.jpg"
+    },
+    {
+     "code": "R-11",
+     "color": "Design 11",
+     "img": "crr11.jpg"
+    },
+    {
+     "code": "R-12",
+     "color": "Design 12",
+     "img": "crr12.jpg"
+    },
+    {
+     "code": "R-13",
+     "color": "Design 13",
+     "img": "crr13.jpg"
+    },
+    {
+     "code": "R-14",
+     "color": "Design 14",
+     "img": "crr14.jpg"
+    },
+    {
+     "code": "R-15",
+     "color": "Design 15",
+     "img": "crr15.jpg"
+    },
+    {
+     "code": "R-16",
+     "color": "Design 16",
+     "img": "crr16.jpg"
+    },
+    {
+     "code": "R-17",
+     "color": "Design 17",
+     "img": "crr17.jpg"
+    },
+    {
+     "code": "R-18",
+     "color": "Design 18",
+     "img": "crr18.jpg"
+    },
+    {
+     "code": "R-19",
+     "color": "Design 19",
+     "img": "crr19.jpg"
+    },
+    {
+     "code": "R-20",
+     "color": "Design 20",
+     "img": "crr20.jpg"
+    },
+    {
+     "code": "R-21",
+     "color": "Design 21",
+     "img": "crr21.jpg"
+    },
+    {
+     "code": "R-22",
+     "color": "Design 22",
+     "img": "crr22.jpg"
+    },
+    {
+     "code": "R-23",
+     "color": "Design 23",
+     "img": "crr23.jpg"
+    },
+    {
+     "code": "R-24",
+     "color": "Design 24",
+     "img": "crr24.jpg"
+    },
+    {
+     "code": "R-25",
+     "color": "Design 25",
+     "img": "crr25.jpg"
+    },
+    {
+     "code": "R-26",
+     "color": "Design 26",
+     "img": "crr26.jpg"
+    },
+    {
+     "code": "R-27",
+     "color": "Design 27",
+     "img": "crr27.jpg"
+    },
+    {
+     "code": "R-28",
+     "color": "Design 28",
+     "img": "crr28.jpg"
+    },
+    {
+     "code": "R-29",
+     "color": "Design 29",
+     "img": "crr29.jpg"
+    },
+    {
+     "code": "R-30",
+     "color": "Design 30",
+     "img": "crr30.jpg"
+    },
+    {
+     "code": "R-31",
+     "color": "Design 31",
+     "img": "crr31.jpg"
+    },
+    {
+     "code": "R-32",
+     "color": "Design 32",
+     "img": "crr32.jpg"
+    },
+    {
+     "code": "R-33",
+     "color": "Design 33",
+     "img": "crr33.jpg"
+    }
+   ],
+   "spec": "Crera · Designer Pedestal Basin · 33 designs · All colours as per colour chart",
+   "desc": "Crera · Designer Pedestal Basin · 33 designs",
+   "about": "Designer Round Damaru is a one-piece pedestal wash basin in an hourglass shape with dozens of print designs.",
+   "specs": [
+    [
+     "Brand",
+     "Crera"
+    ],
+    [
+     "Series",
+     "Designer Round Damaru"
+    ],
+    [
+     "Type",
+     "Designer Pedestal Basin"
+    ],
+    [
+     "Designs",
+     "33 (codes R-01 – R-33)"
+    ]
+   ],
+   "perks": [
+    "All colours available as per colour chart"
+   ]
+  },
+  {
+   "name": "Vitrossa Big Sterling Set",
+   "tag": "Crera",
+   "thumbs": true,
+   "icon": "basin",
+   "variants": [
+    {
+     "code": "801",
+     "color": "Design 1",
+     "img": "cr801.jpg"
+    },
+    {
+     "code": "802",
+     "color": "Design 2",
+     "img": "cr802.jpg"
+    },
+    {
+     "code": "803",
+     "color": "Design 3",
+     "img": "cr803.jpg"
+    },
+    {
+     "code": "804",
+     "color": "Design 4",
+     "img": "cr804.jpg"
+    },
+    {
+     "code": "805",
+     "color": "Design 5",
+     "img": "cr805.jpg"
+    },
+    {
+     "code": "806",
+     "color": "Design 6",
+     "img": "cr806.jpg"
+    },
+    {
+     "code": "807",
+     "color": "Design 7",
+     "img": "cr807.jpg"
+    },
+    {
+     "code": "808",
+     "color": "Design 8",
+     "img": "cr808.jpg"
+    },
+    {
+     "code": "809",
+     "color": "Design 9",
+     "img": "cr809.jpg"
+    }
+   ],
+   "spec": "Crera · Coloured Pedestal Wash Basin Set · 9 designs · All colours as per colour chart",
+   "desc": "Crera · Coloured Pedestal Wash Basin Set · 9 designs",
+   "about": "Vitrossa Big Sterling is a hand-finished coloured pedestal wash basin set with a classic sterling shape.",
+   "specs": [
+    [
+     "Brand",
+     "Crera"
+    ],
+    [
+     "Series",
+     "Vitrossa Big Sterling Set"
+    ],
+    [
+     "Type",
+     "Coloured Pedestal Wash Basin Set"
+    ],
+    [
+     "Designs",
+     "9 (codes 801 – 809)"
+    ]
+   ],
+   "perks": [
+    "All colours available as per colour chart"
+   ]
+  },
+  {
+   "name": "Designer Glass Damaru",
+   "tag": "Crera",
+   "thumbs": true,
+   "icon": "basin",
+   "variants": [
+    {
+     "code": "G-01",
+     "color": "Design 1",
+     "img": "crg01.jpg"
+    },
+    {
+     "code": "G-02",
+     "color": "Design 2",
+     "img": "crg02.jpg"
+    },
+    {
+     "code": "G-03",
+     "color": "Design 3",
+     "img": "crg03.jpg"
+    },
+    {
+     "code": "G-04",
+     "color": "Design 4",
+     "img": "crg04.jpg"
+    },
+    {
+     "code": "G-05",
+     "color": "Design 5",
+     "img": "crg05.jpg"
+    },
+    {
+     "code": "G-06",
+     "color": "Design 6",
+     "img": "crg06.jpg"
+    },
+    {
+     "code": "G-07",
+     "color": "Design 7",
+     "img": "crg07.jpg"
+    },
+    {
+     "code": "G-08",
+     "color": "Design 8",
+     "img": "crg08.jpg"
+    },
+    {
+     "code": "G-09",
+     "color": "Design 9",
+     "img": "crg09.jpg"
+    },
+    {
+     "code": "G-10",
+     "color": "Design 10",
+     "img": "crg10.jpg"
+    },
+    {
+     "code": "G-11",
+     "color": "Design 11",
+     "img": "crg11.jpg"
+    },
+    {
+     "code": "G-12",
+     "color": "Design 12",
+     "img": "crg12.jpg"
+    },
+    {
+     "code": "G-13",
+     "color": "Design 13",
+     "img": "crg13.jpg"
+    },
+    {
+     "code": "G-14",
+     "color": "Design 14",
+     "img": "crg14.jpg"
+    },
+    {
+     "code": "G-15",
+     "color": "Design 15",
+     "img": "crg15.jpg"
+    }
+   ],
+   "spec": "Crera · Designer Pedestal Basin · 15 designs · All colours as per colour chart",
+   "desc": "Crera · Designer Pedestal Basin · 15 designs",
+   "about": "Designer Glass Damaru is a one-piece pedestal wash basin in a tall conical shape with premium marble and wood-look prints.",
+   "specs": [
+    [
+     "Brand",
+     "Crera"
+    ],
+    [
+     "Series",
+     "Designer Glass Damaru"
+    ],
+    [
+     "Type",
+     "Designer Pedestal Basin"
+    ],
+    [
+     "Designs",
+     "15 (codes G-01 – G-15)"
+    ]
+   ],
+   "perks": [
+    "All colours available as per colour chart"
+   ]
+  },
+  {
+   "name": "Designer Capsule Damaru",
+   "tag": "Crera",
+   "thumbs": true,
+   "icon": "basin",
+   "variants": [
+    {
+     "code": "C-01",
+     "color": "Design 1",
+     "img": "crc01.jpg"
+    },
+    {
+     "code": "C-02",
+     "color": "Design 2",
+     "img": "crc02.jpg"
+    },
+    {
+     "code": "C-03",
+     "color": "Design 3",
+     "img": "crc03.jpg"
+    },
+    {
+     "code": "C-04",
+     "color": "Design 4",
+     "img": "crc04.jpg"
+    },
+    {
+     "code": "C-05",
+     "color": "Design 5",
+     "img": "crc05.jpg"
+    },
+    {
+     "code": "C-06",
+     "color": "Design 6",
+     "img": "crc06.jpg"
+    },
+    {
+     "code": "C-07",
+     "color": "Design 7",
+     "img": "crc07.jpg"
+    },
+    {
+     "code": "C-08",
+     "color": "Design 8",
+     "img": "crc08.jpg"
+    },
+    {
+     "code": "C-09",
+     "color": "Design 9",
+     "img": "crc09.jpg"
+    },
+    {
+     "code": "C-10",
+     "color": "Design 10",
+     "img": "crc10.jpg"
+    },
+    {
+     "code": "C-11",
+     "color": "Design 11",
+     "img": "crc11.jpg"
+    },
+    {
+     "code": "C-12",
+     "color": "Design 12",
+     "img": "crc12.jpg"
+    },
+    {
+     "code": "C-13",
+     "color": "Design 13",
+     "img": "crc13.jpg"
+    },
+    {
+     "code": "C-14",
+     "color": "Design 14",
+     "img": "crc14.jpg"
+    },
+    {
+     "code": "C-15",
+     "color": "Design 15",
+     "img": "crc15.jpg"
+    },
+    {
+     "code": "C-16",
+     "color": "Design 16",
+     "img": "crc16.jpg"
+    },
+    {
+     "code": "C-17",
+     "color": "Design 17",
+     "img": "crc17.jpg"
+    },
+    {
+     "code": "C-18",
+     "color": "Design 18",
+     "img": "crc18.jpg"
+    }
+   ],
+   "spec": "Crera · Designer Pedestal Basin · 18 designs · All colours as per colour chart",
+   "desc": "Crera · Designer Pedestal Basin · 18 designs",
+   "about": "Designer Capsule Damaru is a one-piece pedestal wash basin with a soft capsule shape in wood, marble and colour-block designs.",
+   "specs": [
+    [
+     "Brand",
+     "Crera"
+    ],
+    [
+     "Series",
+     "Designer Capsule Damaru"
+    ],
+    [
+     "Type",
+     "Designer Pedestal Basin"
+    ],
+    [
+     "Designs",
+     "18 (codes C-01 – C-18)"
+    ]
+   ],
+   "perks": [
+    "All colours available as per colour chart"
+   ]
+  }
+ ],
+ "categories": [
+  {
+   "name": "Designer One Piece",
+   "items": [
+    {
+     "name": "Zoya One Piece",
+     "tag": "Golden Series",
+     "thumbs": true,
+     "icon": "commode",
+     "spec": "Golden Series · 660×380×730 mm · S-trap 225 / P-trap 180 mm · Wash down flushing",
+     "desc": "Golden Series · 660×380×730 mm · Wash down flushing",
+     "about": "Zoya is where royal elegance meets modern performance. Designed to elevate your bathroom with luxury and lasting comfort.",
+     "specs": [
+      [
+       "Model",
+       "Zoya One Piece"
+      ],
+      [
+       "Series",
+       "Golden Series"
+      ],
+      [
+       "Size",
+       "660 × 380 × 730 mm"
+      ],
+      [
+       "Trap",
+       "S-trap 225 mm / P-trap 180 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down flushing"
+      ]
+     ],
+     "features": [
+      [
+       "Premium Design",
+       "Stunning finish with elegant golden accents for a luxurious look."
+      ],
+      [
+       "Efficient Flush",
+       "Wash down flushing system ensures powerful cleaning with every use."
+      ],
+      [
+       "Comfort & Durability",
+       "Ergonomically designed for maximum comfort and built to last."
+      ],
+      [
+       "Easy to Clean",
+       "Smooth glazed surface for effortless cleaning and hygiene."
+      ]
+     ],
+     "perks": [
+      "Premium Quality",
+      "Water Efficient",
+      "Hygienic Design",
+      "Long Lasting Performance"
+     ],
+     "tagline": "Luxury That Reflects You",
+     "variants": [
+      {
+       "code": "4010",
+       "color": "Black, gold swirl",
+       "img": "zoya4010.jpg"
+      },
+      {
+       "code": "4451",
+       "color": "Black marble, gold",
+       "img": "zoya4451.jpg"
+      },
+      {
+       "code": "4452",
+       "color": "Gold honeycomb & black",
+       "img": "zoya4452.jpg"
+      },
+      {
+       "code": "4251",
+       "color": "Coral, black marble",
+       "img": "zoya4251.jpg"
+      },
+      {
+       "code": "4252",
+       "color": "Coral, gold honeycomb",
+       "img": "zoya4252.jpg"
+      },
+      {
+       "code": "4253",
+       "color": "Coral, circle pattern",
+       "img": "zoya4253.jpg"
+      },
+      {
+       "code": "4254",
+       "color": "Coral, geometric pattern",
+       "img": "zoya4254.jpg"
+      },
+      {
+       "code": "4255",
+       "color": "Coral, floral",
+       "img": "zoya4255.jpg"
+      },
+      {
+       "code": "4256",
+       "color": "Coral, honeycomb",
+       "img": "zoya4256.jpg"
+      },
+      {
+       "code": "4257",
+       "color": "Coral, gold lines",
+       "img": "zoya4257.jpg"
+      },
+      {
+       "code": "4152",
+       "color": "Green marble, gold",
+       "img": "zoya4152.jpg"
+      },
+      {
+       "code": "4153",
+       "color": "Teal, gold floral",
+       "img": "zoya4153.jpg"
+      },
+      {
+       "code": "4154",
+       "color": "Green, gold ornament",
+       "img": "zoya4154.jpg"
+      },
+      {
+       "code": "4155",
+       "color": "Green & gold honeycomb",
+       "img": "zoya4155.jpg"
+      },
+      {
+       "code": "4351",
+       "color": "Blue marble, gold",
+       "img": "zoya4351.jpg"
+      },
+      {
+       "code": "4352",
+       "color": "Blue, gold lines",
+       "img": "zoya4352.jpg"
+      },
+      {
+       "code": "4501",
+       "color": "Steel blue, gold marble",
+       "img": "zoya4501.jpg"
+      },
+      {
+       "code": "4510",
+       "color": "Steel blue, gold line",
+       "img": "zoya4510.jpg"
+      }
+     ]
+    },
+    {
+     "name": "Zudio One Piece",
+     "tag": "Golden Series",
+     "thumbs": true,
+     "icon": "commode",
+     "badge": "Premium Quality Assured",
+     "spec": "Golden Series · 655×380×750 mm · S-trap 225 / P-trap 180 mm · Wash down flushing",
+     "desc": "Golden Series · 655×380×750 mm · Wash down flushing",
+     "about": "Zudio is where royal elegance meets modern performance. Designed to elevate your bathroom with luxury and lasting comfort.",
+     "specs": [
+      [
+       "Model",
+       "Zudio One Piece"
+      ],
+      [
+       "Series",
+       "Golden Series"
+      ],
+      [
+       "Size",
+       "655 × 380 × 750 mm"
+      ],
+      [
+       "Trap",
+       "S-trap 225 mm / P-trap 180 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down flushing"
+      ]
+     ],
+     "features": [
+      [
+       "Premium Quality & Durability",
+       "Crafted with high-grade materials for long lasting performance."
+      ],
+      [
+       "Superior Flush Performance",
+       "Deep and efficient cleaning with every flush."
+      ],
+      [
+       "Sleek Design for Modern Bathrooms",
+       "Contemporary one piece design for a seamless and sophisticated look."
+      ],
+      [
+       "Powerful Wash Down Flush",
+       "Deep clean with every flush."
+      ],
+      [
+       "High-Gloss Finish",
+       "Easy to clean & long lasting shine."
+      ],
+      [
+       "Water Efficient",
+       "Saves water, saves future."
+      ]
+     ],
+     "perks": [
+      "Eco-Friendly Design",
+      "Long Lasting Performance",
+      "Easy Maintenance",
+      "Better Hygiene, Better Living"
+     ],
+     "tagline": "Inspired by Nature. Designed for You.",
+     "variants": [
+      {
+       "code": "4600",
+       "color": "Black, gold lattice",
+       "img": "zudio4600.jpg"
+      },
+      {
+       "code": "4601",
+       "color": "Black, gold marble",
+       "img": "zudio4601.jpg"
+      },
+      {
+       "code": "4602",
+       "color": "Black-grey marble",
+       "img": "zudio4602.jpg"
+      },
+      {
+       "code": "4700",
+       "color": "Coral lattice",
+       "img": "zudio4700.jpg"
+      }
+     ]
+    },
+    {
+     "name": "Zebra One Piece",
+     "tag": "Designer Series",
+     "spec": "Designer Series · 660×400×670 mm · S-trap 225 mm / P-trap 180 mm · Wash down flushing",
+     "desc": "Designer Series · 660×400×670 mm · Wash down flushing",
+     "icon": "commode",
+     "variants": [
+      {
+       "code": "7001",
+       "color": "Black",
+       "hex": "#15110f",
+       "img": "zebra7001.jpg"
+      },
+      {
+       "code": "7015",
+       "color": "Red",
+       "hex": "#b8433f",
+       "img": "zebra7015.jpg"
+      },
+      {
+       "code": "7028",
+       "color": "Green",
+       "hex": "#1f6b4f",
+       "img": "zebra7028.jpg"
+      },
+      {
+       "code": "7011",
+       "color": "Navy Blue",
+       "hex": "#27408b",
+       "img": "zebra7011.jpg"
+      },
+      {
+       "code": "7023",
+       "color": "Yellow",
+       "hex": "#f2d21c",
+       "img": "zebra7023.jpg"
+      },
+      {
+       "code": "7012",
+       "color": "Sky Blue",
+       "hex": "#4a9fd8",
+       "img": "zebra7012.jpg"
+      },
+      {
+       "code": "7026",
+       "color": "Teal Blue",
+       "hex": "#0f6b86",
+       "img": "zebra7026.jpg"
+      },
+      {
+       "code": "7024",
+       "color": "Brown",
+       "hex": "#8a5a3b",
+       "img": "zebra7024.jpg"
+      }
+     ],
+     "specs": [
+      [
+       "Model",
+       "Zebra One Piece"
+      ],
+      [
+       "Series",
+       "Designer Series"
+      ],
+      [
+       "Size",
+       "660 × 400 × 670 mm"
+      ],
+      [
+       "Trap",
+       "S-trap 225 mm / P-trap 180 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down flushing"
+      ]
+     ],
+     "badge": "Premium Quality Assured",
+     "about": "Zebra one piece is where modern design meets superior performance. Engineered for comfort, crafted for luxury.",
+     "features": [
+      [
+       "Wash Down Flushing",
+       "Efficient water flow for superior hygiene."
+      ],
+      [
+       "Ergonomic Design",
+       "Comfortable height for better posture."
+      ],
+      [
+       "Modern Aesthetic",
+       "Unique zebra shape for a stylish look."
+      ],
+      [
+       "Premium Quality",
+       "Crafted with perfection for a luxurious feel."
+      ],
+      [
+       "Durable & Reliable",
+       "High quality material for long lasting use."
+      ],
+      [
+       "Easy to Clean",
+       "Smooth surface for effortless cleaning."
+      ]
+     ],
+     "perks": [
+      "Eco-Friendly Material",
+      "Long Lasting Performance",
+      "Easy Maintenance",
+      "Better Hygiene, Better Living"
+     ],
+     "tagline": "Inspired by Design. Driven by Excellence."
+    },
+    {
+     "name": "Zara One Piece",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "commode",
+     "variants": [
+      {
+       "code": "1009",
+       "color": "Design Slate Blue",
+       "img": "cr1009.jpg"
+      },
+      {
+       "code": "1012",
+       "color": "Design Sky Blue",
+       "img": "cr1012.jpg"
+      },
+      {
+       "code": "1029",
+       "color": "Design Blue & White",
+       "img": "cr1029.jpg"
+      }
+     ],
+     "spec": "Crera · Designer One Piece · 3 colours · L660 × W355 × H740 mm",
+     "desc": "Crera · 3 colours",
+     "about": "Zara is a designer one piece closet with a coloured body and black seat.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Zara One Piece"
+      ],
+      [
+       "Type",
+       "Designer One Piece Closet"
+      ],
+      [
+       "Designs",
+       "3 (codes 1009 – 1029)"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ],
+      [
+       "Size",
+       "L660 × W355 × H740 mm"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Titanic One Piece",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "commode",
+     "variants": [
+      {
+       "code": "2009",
+       "color": "Design Slate Blue",
+       "img": "cr2009.jpg"
+      },
+      {
+       "code": "2012",
+       "color": "Design Sky Blue",
+       "img": "cr2012.jpg"
+      },
+      {
+       "code": "2029",
+       "color": "Design Blue & White",
+       "img": "cr2029.jpg"
+      }
+     ],
+     "spec": "Crera · Designer One Piece · 3 colours · L660 × W355 × H740 mm",
+     "desc": "Crera · 3 colours",
+     "about": "Titanic is a designer one piece closet with a coloured body and black seat.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Titanic One Piece"
+      ],
+      [
+       "Type",
+       "Designer One Piece Closet"
+      ],
+      [
+       "Designs",
+       "3 (codes 2009 – 2029)"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ],
+      [
+       "Size",
+       "L660 × W355 × H740 mm"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Designer One Piece",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "commode",
+     "variants": [
+      {
+       "code": "1101",
+       "color": "Design Marble Print",
+       "img": "cr1101.jpg"
+      },
+      {
+       "code": "1102",
+       "color": "Design Black Gold",
+       "img": "cr1102.jpg"
+      },
+      {
+       "code": "1103",
+       "color": "Design Floral",
+       "img": "cr1103.jpg"
+      },
+      {
+       "code": "1104",
+       "color": "Design Black Marble",
+       "img": "cr1104.jpg"
+      },
+      {
+       "code": "1105",
+       "color": "Design Brick",
+       "img": "cr1105.jpg"
+      },
+      {
+       "code": "1106",
+       "color": "Design Grey Marble",
+       "img": "cr1106.jpg"
+      }
+     ],
+     "spec": "Crera · Designer One Piece · 6 designs · L660 × W360 × H760 mm",
+     "desc": "Crera · 6 designs",
+     "about": "Designer One Piece closet in marble, floral, black and brick-look print finishes.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Designer One Piece"
+      ],
+      [
+       "Type",
+       "Designer One Piece Closet"
+      ],
+      [
+       "Designs",
+       "6 (codes 1101 – 1106)"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ],
+      [
+       "Size",
+       "L660 × W360 × H760 mm"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "One Piece Closets",
+   "items": [
+    {
+     "name": "Sentro",
+     "code": "101",
+     "img": "cr101.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L675 × W405 × H720 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "101"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L675 × W405 × H720 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Combo",
+     "code": "102",
+     "img": "cr102.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "102"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Europa",
+     "code": "103",
+     "img": "cr103.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L630 × W350 × H700 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "103"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L630 × W350 × H700 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Oliver",
+     "code": "104",
+     "img": "cr104.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L650 × W360 × H740 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "104"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L650 × W360 × H740 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Recto",
+     "code": "105",
+     "img": "cr105.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L680 × W355 × H680 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "105"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L680 × W355 × H680 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Belino",
+     "code": "106",
+     "img": "cr106.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L675 × W360 × H720 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "106"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L675 × W360 × H720 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Spice",
+     "code": "107",
+     "img": "cr107.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L645 × W350 × H700 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "107"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L645 × W350 × H700 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Classic",
+     "code": "108",
+     "img": "cr108.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L650 × W350 × H700 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "108"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L650 × W350 × H700 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Crystal",
+     "code": "109",
+     "img": "cr109.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L647 × W350 × H725 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "109"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L647 × W350 × H725 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Charlie",
+     "code": "110",
+     "img": "cr110.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L660 × W360 × H685 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "110"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L660 × W360 × H685 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Diamond",
+     "code": "111",
+     "img": "cr111.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L675 × W405 × H720 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "111"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L675 × W405 × H720 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "James",
+     "code": "112",
+     "img": "cr112.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L655 × W360 × H740 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "112"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L655 × W360 × H740 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "David",
+     "code": "113",
+     "img": "cr113.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L650 × W350 × H695 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "113"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L650 × W350 × H695 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Vizard",
+     "code": "124",
+     "img": "cr124.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L650 × W360 × H740 mm · Syphonic",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "124"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L650 × W360 × H740 mm"
+      ],
+      [
+       "Flushing",
+       "Syphonic"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "James Syphonic",
+     "code": "125",
+     "img": "cr125.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L660 × W360 × H760 mm · Syphonic",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "125"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L660 × W360 × H760 mm"
+      ],
+      [
+       "Flushing",
+       "Syphonic"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Robert",
+     "code": "126",
+     "img": "cr126.jpg",
+     "tag": "Crera",
+     "desc": "Crera · One Piece Closet · L660 × W360 × H685 mm · Syphonic",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "126"
+      ],
+      [
+       "Type",
+       "One Piece Closet"
+      ],
+      [
+       "Size",
+       "L660 × W360 × H685 mm"
+      ],
+      [
+       "Flushing",
+       "Syphonic"
+      ]
+     ],
+     "chart": true
+    }
+   ]
+  },
+  {
+   "name": "Water Closets",
+   "items": [
+    {
+     "name": "E.W.C. S-Trap",
+     "code": "201",
+     "img": "cr201.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L465 × W350 × H410 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "201"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L465 × W350 × H410 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "E.W.C. P-Trap",
+     "code": "202",
+     "img": "cr202.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L465 × W350 × H410 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "202"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L465 × W350 × H410 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Concealed",
+     "code": "203",
+     "img": "cr203.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L570 × W355 × H690 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "203"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L570 × W355 × H690 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Anglo S-Trap",
+     "code": "204",
+     "img": "cr204.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L600 × W430 × H390 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "204"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L600 × W430 × H390 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Anglo P-Trap",
+     "code": "205",
+     "img": "cr205.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L600 × W430 × H390 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "205"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L600 × W430 × H390 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Square E.W.C. S-Trap",
+     "code": "206",
+     "img": "cr206.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Water Closet · L430 × W360 × H480 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "206"
+      ],
+      [
+       "Type",
+       "Water Closet"
+      ],
+      [
+       "Size",
+       "L430 × W360 × H480 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Italian S-Trap",
+     "code": "207",
+     "img": "cr207.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Export Closet · L660 × W370 × H680 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "207"
+      ],
+      [
+       "Type",
+       "Export Closet"
+      ],
+      [
+       "Size",
+       "L660 × W370 × H680 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Italian P-Trap",
+     "code": "208",
+     "img": "cr208.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Export Closet · L660 × W370 × H680 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "208"
+      ],
+      [
+       "Type",
+       "Export Closet"
+      ],
+      [
+       "Size",
+       "L660 × W370 × H680 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Irani S-Trap",
+     "code": "209",
+     "img": "cr209.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Export Closet · L648 × W369 × H775 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "209"
+      ],
+      [
+       "Type",
+       "Export Closet"
+      ],
+      [
+       "Size",
+       "L648 × W369 × H775 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Irani P-Trap",
+     "code": "210",
+     "img": "cr210.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Export Closet · L648 × W369 × H775 mm · Wash down",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "210"
+      ],
+      [
+       "Type",
+       "Export Closet"
+      ],
+      [
+       "Size",
+       "L648 × W369 × H775 mm"
+      ],
+      [
+       "Flushing",
+       "Wash down"
+      ]
+     ],
+     "chart": true
+    }
+   ]
+  },
+  {
+   "name": "Wall Hung",
+   "items": [
+    {
+     "name": "Wall Hung 301",
+     "code": "301",
+     "img": "cr301.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wall Hung Closet · L530 × W360 × H370 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "301"
+      ],
+      [
+       "Type",
+       "Wall Hung Closet"
+      ],
+      [
+       "Size",
+       "L530 × W360 × H370 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wall Hung 302",
+     "code": "302",
+     "img": "cr302.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wall Hung Closet · L490 × W345 × H330 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "302"
+      ],
+      [
+       "Type",
+       "Wall Hung Closet"
+      ],
+      [
+       "Size",
+       "L490 × W345 × H330 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wall Hung 303",
+     "code": "303",
+     "img": "cr303.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wall Hung Closet · L483 × W356 × H368 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "303"
+      ],
+      [
+       "Type",
+       "Wall Hung Closet"
+      ],
+      [
+       "Size",
+       "L483 × W356 × H368 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wall Hung 304",
+     "code": "304",
+     "img": "cr304.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wall Hung Closet · L510 × W360 × H360 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "304"
+      ],
+      [
+       "Type",
+       "Wall Hung Closet"
+      ],
+      [
+       "Size",
+       "L510 × W360 × H360 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Floor Mount Closet 305",
+     "code": "305",
+     "img": "cr305.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Floor Mount Closet · L500 × W350 × H400 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "305"
+      ],
+      [
+       "Type",
+       "Floor Mount Closet"
+      ],
+      [
+       "Size",
+       "L500 × W350 × H400 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Floor Mount Closet 306",
+     "code": "306",
+     "img": "cr306.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Floor Mount Closet · L520 × W340 × H390 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "306"
+      ],
+      [
+       "Type",
+       "Floor Mount Closet"
+      ],
+      [
+       "Size",
+       "L520 × W340 × H390 mm"
+      ]
+     ],
+     "chart": true
+    }
+   ]
+  },
+  {
+   "name": "Basin & Pedestal",
+   "items": [
+    {
+     "name": "Big Sterling Set",
+     "code": "401",
+     "img": "cr401.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 25\" × 20\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "401"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "25\" × 20\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "One Piece Basin",
+     "code": "402",
+     "img": "cr402.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 31\" × 16\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "402"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "31\" × 16\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Victoria Set",
+     "code": "403",
+     "img": "cr403.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 25\" × 19\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "403"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "25\" × 19\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Star Gold Set",
+     "code": "404",
+     "img": "cr404.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 23\" × 17\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "404"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "23\" × 17\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Sophia Set",
+     "code": "405",
+     "img": "cr405.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 23\" × 17\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "405"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "23\" × 17\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Polo Set",
+     "code": "406",
+     "img": "cr406.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 23\" × 17\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "406"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "23\" × 17\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Repose Set",
+     "code": "407",
+     "img": "cr407.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 22\" × 16\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "407"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "22\" × 16\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Classic Set",
+     "code": "408",
+     "img": "cr408.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 20\" × 16\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "408"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "20\" × 16\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Mini Polo Set",
+     "code": "409",
+     "img": "cr409.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Basin & Pedestal Set · 18\" × 14\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "409"
+      ],
+      [
+       "Type",
+       "Basin & Pedestal Set"
+      ],
+      [
+       "Size",
+       "18\" × 14\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Vitrossa Big Sterling Set",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "801",
+       "color": "Design 1",
+       "img": "cr801.jpg"
+      },
+      {
+       "code": "802",
+       "color": "Design 2",
+       "img": "cr802.jpg"
+      },
+      {
+       "code": "803",
+       "color": "Design 3",
+       "img": "cr803.jpg"
+      },
+      {
+       "code": "804",
+       "color": "Design 4",
+       "img": "cr804.jpg"
+      },
+      {
+       "code": "805",
+       "color": "Design 5",
+       "img": "cr805.jpg"
+      },
+      {
+       "code": "806",
+       "color": "Design 6",
+       "img": "cr806.jpg"
+      },
+      {
+       "code": "807",
+       "color": "Design 7",
+       "img": "cr807.jpg"
+      },
+      {
+       "code": "808",
+       "color": "Design 8",
+       "img": "cr808.jpg"
+      },
+      {
+       "code": "809",
+       "color": "Design 9",
+       "img": "cr809.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Pedestal Wash Basin Set · 9 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Pedestal Wash Basin Set · 9 designs",
+     "about": "Vitrossa Big Sterling is a hand-finished coloured pedestal wash basin set with a classic sterling shape.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Vitrossa Big Sterling Set"
+      ],
+      [
+       "Type",
+       "Coloured Pedestal Wash Basin Set"
+      ],
+      [
+       "Designs",
+       "9 (codes 801 – 809)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Vitrossa Star Gold Set",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "901",
+       "color": "Design 1",
+       "img": "cr901.jpg"
+      },
+      {
+       "code": "902",
+       "color": "Design 2",
+       "img": "cr902.jpg"
+      },
+      {
+       "code": "903",
+       "color": "Design 3",
+       "img": "cr903.jpg"
+      },
+      {
+       "code": "904",
+       "color": "Design 4",
+       "img": "cr904.jpg"
+      },
+      {
+       "code": "905",
+       "color": "Design 5",
+       "img": "cr905.jpg"
+      },
+      {
+       "code": "906",
+       "color": "Design 6",
+       "img": "cr906.jpg"
+      },
+      {
+       "code": "907",
+       "color": "Design 7",
+       "img": "cr907.jpg"
+      },
+      {
+       "code": "908",
+       "color": "Design 8",
+       "img": "cr908.jpg"
+      },
+      {
+       "code": "909",
+       "color": "Design 9",
+       "img": "cr909.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Pedestal Wash Basin Set · 9 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Pedestal Wash Basin Set · 9 designs",
+     "about": "Vitrossa Star Gold is a coloured pedestal wash basin set with floral hand-painted style designs.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Vitrossa Star Gold Set"
+      ],
+      [
+       "Type",
+       "Coloured Pedestal Wash Basin Set"
+      ],
+      [
+       "Designs",
+       "9 (codes 901 – 909)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Vitrossa Star Gold Set – Series 2",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "910",
+       "color": "Design 1",
+       "img": "cr910.jpg"
+      },
+      {
+       "code": "911",
+       "color": "Design 2",
+       "img": "cr911.jpg"
+      },
+      {
+       "code": "912",
+       "color": "Design 3",
+       "img": "cr912.jpg"
+      },
+      {
+       "code": "913",
+       "color": "Design 4",
+       "img": "cr913.jpg"
+      },
+      {
+       "code": "914",
+       "color": "Design 5",
+       "img": "cr914.jpg"
+      },
+      {
+       "code": "915",
+       "color": "Design 6",
+       "img": "cr915.jpg"
+      },
+      {
+       "code": "916",
+       "color": "Design 7",
+       "img": "cr916.jpg"
+      },
+      {
+       "code": "917",
+       "color": "Design 8",
+       "img": "cr917.jpg"
+      },
+      {
+       "code": "918",
+       "color": "Design 9",
+       "img": "cr918.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Pedestal Wash Basin Set · 9 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Pedestal Wash Basin Set · 9 designs",
+     "about": "More Vitrossa Star Gold designs: marble style and bright colour finishes.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Vitrossa Star Gold Set – Series 2"
+      ],
+      [
+       "Type",
+       "Coloured Pedestal Wash Basin Set"
+      ],
+      [
+       "Designs",
+       "9 (codes 910 – 918)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Vitrossa Polo Set",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "1201",
+       "color": "Design 1",
+       "img": "cr1201.jpg"
+      },
+      {
+       "code": "1202",
+       "color": "Design 2",
+       "img": "cr1202.jpg"
+      },
+      {
+       "code": "1203",
+       "color": "Design 3",
+       "img": "cr1203.jpg"
+      },
+      {
+       "code": "1204",
+       "color": "Design 4",
+       "img": "cr1204.jpg"
+      },
+      {
+       "code": "1205",
+       "color": "Design 5",
+       "img": "cr1205.jpg"
+      },
+      {
+       "code": "1206",
+       "color": "Design 6",
+       "img": "cr1206.jpg"
+      },
+      {
+       "code": "1207",
+       "color": "Design 7",
+       "img": "cr1207.jpg"
+      },
+      {
+       "code": "1208",
+       "color": "Design 8",
+       "img": "cr1208.jpg"
+      },
+      {
+       "code": "1209",
+       "color": "Design 9",
+       "img": "cr1209.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Pedestal Wash Basin Set · 9 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Pedestal Wash Basin Set · 9 designs",
+     "about": "Vitrossa Polo is a slim-pedestal coloured wash basin set in wood-look and bright colour finishes.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Vitrossa Polo Set"
+      ],
+      [
+       "Type",
+       "Coloured Pedestal Wash Basin Set"
+      ],
+      [
+       "Designs",
+       "9 (codes 1201 – 1209)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Designer Basin",
+   "items": [
+    {
+     "name": "Designer Round Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "R-01",
+       "color": "Design 1",
+       "img": "crr01.jpg"
+      },
+      {
+       "code": "R-02",
+       "color": "Design 2",
+       "img": "crr02.jpg"
+      },
+      {
+       "code": "R-03",
+       "color": "Design 3",
+       "img": "crr03.jpg"
+      },
+      {
+       "code": "R-04",
+       "color": "Design 4",
+       "img": "crr04.jpg"
+      },
+      {
+       "code": "R-05",
+       "color": "Design 5",
+       "img": "crr05.jpg"
+      },
+      {
+       "code": "R-06",
+       "color": "Design 6",
+       "img": "crr06.jpg"
+      },
+      {
+       "code": "R-07",
+       "color": "Design 7",
+       "img": "crr07.jpg"
+      },
+      {
+       "code": "R-08",
+       "color": "Design 8",
+       "img": "crr08.jpg"
+      },
+      {
+       "code": "R-09",
+       "color": "Design 9",
+       "img": "crr09.jpg"
+      },
+      {
+       "code": "R-10",
+       "color": "Design 10",
+       "img": "crr10.jpg"
+      },
+      {
+       "code": "R-11",
+       "color": "Design 11",
+       "img": "crr11.jpg"
+      },
+      {
+       "code": "R-12",
+       "color": "Design 12",
+       "img": "crr12.jpg"
+      },
+      {
+       "code": "R-13",
+       "color": "Design 13",
+       "img": "crr13.jpg"
+      },
+      {
+       "code": "R-14",
+       "color": "Design 14",
+       "img": "crr14.jpg"
+      },
+      {
+       "code": "R-15",
+       "color": "Design 15",
+       "img": "crr15.jpg"
+      },
+      {
+       "code": "R-16",
+       "color": "Design 16",
+       "img": "crr16.jpg"
+      },
+      {
+       "code": "R-17",
+       "color": "Design 17",
+       "img": "crr17.jpg"
+      },
+      {
+       "code": "R-18",
+       "color": "Design 18",
+       "img": "crr18.jpg"
+      },
+      {
+       "code": "R-19",
+       "color": "Design 19",
+       "img": "crr19.jpg"
+      },
+      {
+       "code": "R-20",
+       "color": "Design 20",
+       "img": "crr20.jpg"
+      },
+      {
+       "code": "R-21",
+       "color": "Design 21",
+       "img": "crr21.jpg"
+      },
+      {
+       "code": "R-22",
+       "color": "Design 22",
+       "img": "crr22.jpg"
+      },
+      {
+       "code": "R-23",
+       "color": "Design 23",
+       "img": "crr23.jpg"
+      },
+      {
+       "code": "R-24",
+       "color": "Design 24",
+       "img": "crr24.jpg"
+      },
+      {
+       "code": "R-25",
+       "color": "Design 25",
+       "img": "crr25.jpg"
+      },
+      {
+       "code": "R-26",
+       "color": "Design 26",
+       "img": "crr26.jpg"
+      },
+      {
+       "code": "R-27",
+       "color": "Design 27",
+       "img": "crr27.jpg"
+      },
+      {
+       "code": "R-28",
+       "color": "Design 28",
+       "img": "crr28.jpg"
+      },
+      {
+       "code": "R-29",
+       "color": "Design 29",
+       "img": "crr29.jpg"
+      },
+      {
+       "code": "R-30",
+       "color": "Design 30",
+       "img": "crr30.jpg"
+      },
+      {
+       "code": "R-31",
+       "color": "Design 31",
+       "img": "crr31.jpg"
+      },
+      {
+       "code": "R-32",
+       "color": "Design 32",
+       "img": "crr32.jpg"
+      },
+      {
+       "code": "R-33",
+       "color": "Design 33",
+       "img": "crr33.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 33 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 33 designs",
+     "about": "Designer Round Damaru is a one-piece pedestal wash basin in an hourglass shape with dozens of print designs.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Designer Round Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "33 (codes R-01 – R-33)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Designer Glass Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "G-01",
+       "color": "Design 1",
+       "img": "crg01.jpg"
+      },
+      {
+       "code": "G-02",
+       "color": "Design 2",
+       "img": "crg02.jpg"
+      },
+      {
+       "code": "G-03",
+       "color": "Design 3",
+       "img": "crg03.jpg"
+      },
+      {
+       "code": "G-04",
+       "color": "Design 4",
+       "img": "crg04.jpg"
+      },
+      {
+       "code": "G-05",
+       "color": "Design 5",
+       "img": "crg05.jpg"
+      },
+      {
+       "code": "G-06",
+       "color": "Design 6",
+       "img": "crg06.jpg"
+      },
+      {
+       "code": "G-07",
+       "color": "Design 7",
+       "img": "crg07.jpg"
+      },
+      {
+       "code": "G-08",
+       "color": "Design 8",
+       "img": "crg08.jpg"
+      },
+      {
+       "code": "G-09",
+       "color": "Design 9",
+       "img": "crg09.jpg"
+      },
+      {
+       "code": "G-10",
+       "color": "Design 10",
+       "img": "crg10.jpg"
+      },
+      {
+       "code": "G-11",
+       "color": "Design 11",
+       "img": "crg11.jpg"
+      },
+      {
+       "code": "G-12",
+       "color": "Design 12",
+       "img": "crg12.jpg"
+      },
+      {
+       "code": "G-13",
+       "color": "Design 13",
+       "img": "crg13.jpg"
+      },
+      {
+       "code": "G-14",
+       "color": "Design 14",
+       "img": "crg14.jpg"
+      },
+      {
+       "code": "G-15",
+       "color": "Design 15",
+       "img": "crg15.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 15 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 15 designs",
+     "about": "Designer Glass Damaru is a one-piece pedestal wash basin in a tall conical shape with premium marble and wood-look prints.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Designer Glass Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "15 (codes G-01 – G-15)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Designer Capsule Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "C-01",
+       "color": "Design 1",
+       "img": "crc01.jpg"
+      },
+      {
+       "code": "C-02",
+       "color": "Design 2",
+       "img": "crc02.jpg"
+      },
+      {
+       "code": "C-03",
+       "color": "Design 3",
+       "img": "crc03.jpg"
+      },
+      {
+       "code": "C-04",
+       "color": "Design 4",
+       "img": "crc04.jpg"
+      },
+      {
+       "code": "C-05",
+       "color": "Design 5",
+       "img": "crc05.jpg"
+      },
+      {
+       "code": "C-06",
+       "color": "Design 6",
+       "img": "crc06.jpg"
+      },
+      {
+       "code": "C-07",
+       "color": "Design 7",
+       "img": "crc07.jpg"
+      },
+      {
+       "code": "C-08",
+       "color": "Design 8",
+       "img": "crc08.jpg"
+      },
+      {
+       "code": "C-09",
+       "color": "Design 9",
+       "img": "crc09.jpg"
+      },
+      {
+       "code": "C-10",
+       "color": "Design 10",
+       "img": "crc10.jpg"
+      },
+      {
+       "code": "C-11",
+       "color": "Design 11",
+       "img": "crc11.jpg"
+      },
+      {
+       "code": "C-12",
+       "color": "Design 12",
+       "img": "crc12.jpg"
+      },
+      {
+       "code": "C-13",
+       "color": "Design 13",
+       "img": "crc13.jpg"
+      },
+      {
+       "code": "C-14",
+       "color": "Design 14",
+       "img": "crc14.jpg"
+      },
+      {
+       "code": "C-15",
+       "color": "Design 15",
+       "img": "crc15.jpg"
+      },
+      {
+       "code": "C-16",
+       "color": "Design 16",
+       "img": "crc16.jpg"
+      },
+      {
+       "code": "C-17",
+       "color": "Design 17",
+       "img": "crc17.jpg"
+      },
+      {
+       "code": "C-18",
+       "color": "Design 18",
+       "img": "crc18.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 18 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 18 designs",
+     "about": "Designer Capsule Damaru is a one-piece pedestal wash basin with a soft capsule shape in wood, marble and colour-block designs.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Designer Capsule Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "18 (codes C-01 – C-18)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Square Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "SQ-01",
+       "color": "Design 1",
+       "img": "crsq01.jpg"
+      },
+      {
+       "code": "SQ-02",
+       "color": "Design 2",
+       "img": "crsq02.jpg"
+      },
+      {
+       "code": "SQ-03",
+       "color": "Design 3",
+       "img": "crsq03.jpg"
+      },
+      {
+       "code": "SQ-04",
+       "color": "Design 4",
+       "img": "crsq04.jpg"
+      },
+      {
+       "code": "SQ-05",
+       "color": "Design 5",
+       "img": "crsq05.jpg"
+      },
+      {
+       "code": "SQ-06",
+       "color": "Design 6",
+       "img": "crsq06.jpg"
+      },
+      {
+       "code": "SQ-07",
+       "color": "Design 7",
+       "img": "crsq07.jpg"
+      },
+      {
+       "code": "SQ-08",
+       "color": "Design 8",
+       "img": "crsq08.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 8 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 8 designs",
+     "about": "Square Damaru is a designer pedestal basin with a square bowl and print designs.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Square Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "8 (codes SQ-01 – SQ-08)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Table Top Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "TB-01",
+       "color": "Design 1",
+       "img": "crtb01.jpg"
+      },
+      {
+       "code": "TB-02",
+       "color": "Design 2",
+       "img": "crtb02.jpg"
+      },
+      {
+       "code": "TB-03",
+       "color": "Design 3",
+       "img": "crtb03.jpg"
+      },
+      {
+       "code": "TB-04",
+       "color": "Design 4",
+       "img": "crtb04.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 4 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 4 designs",
+     "about": "Table Top Damaru is a designer pedestal basin with a square table-top bowl.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Table Top Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "4 (codes TB-01 – TB-04)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Scorpio Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "SC-01",
+       "color": "Design 1",
+       "img": "crsc01.jpg"
+      },
+      {
+       "code": "SC-02",
+       "color": "Design 2",
+       "img": "crsc02.jpg"
+      },
+      {
+       "code": "SC-03",
+       "color": "Design 3",
+       "img": "crsc03.jpg"
+      },
+      {
+       "code": "SC-04",
+       "color": "Design 4",
+       "img": "crsc04.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 4 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 4 designs",
+     "about": "Scorpio Damaru is a designer pedestal basin with a straight conical shape.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Scorpio Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "4 (codes SC-01 – SC-04)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Crowny Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "CR-01",
+       "color": "Design 1",
+       "img": "crcr01.jpg"
+      },
+      {
+       "code": "CR-02",
+       "color": "Design 2",
+       "img": "crcr02.jpg"
+      },
+      {
+       "code": "CR-03",
+       "color": "Design 3",
+       "img": "crcr03.jpg"
+      },
+      {
+       "code": "CR-04",
+       "color": "Design 4",
+       "img": "crcr04.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 4 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 4 designs",
+     "about": "Crowny Damaru is a designer pedestal basin with a crown-style fluted bowl.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Crowny Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "4 (codes CR-01 – CR-04)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    },
+    {
+     "name": "Diamond Damaru",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "DI-01",
+       "color": "Design 1",
+       "img": "crdi01.jpg"
+      },
+      {
+       "code": "DI-02",
+       "color": "Design 2",
+       "img": "crdi02.jpg"
+      },
+      {
+       "code": "DI-03",
+       "color": "Design 3",
+       "img": "crdi03.jpg"
+      },
+      {
+       "code": "DI-04",
+       "color": "Design 4",
+       "img": "crdi04.jpg"
+      }
+     ],
+     "spec": "Crera · Designer Pedestal Basin · 4 designs · All colours as per colour chart",
+     "desc": "Crera · Designer Pedestal Basin · 4 designs",
+     "about": "Diamond Damaru is a designer pedestal basin with an octagonal diamond-cut bowl.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Diamond Damaru"
+      ],
+      [
+       "Type",
+       "Designer Pedestal Basin"
+      ],
+      [
+       "Designs",
+       "4 (codes DI-01 – DI-04)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Wash Basin",
+   "items": [
+    {
+     "name": "Wash Basin 501",
+     "code": "501",
+     "img": "cr501.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 22\" × 16\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "501"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "22\" × 16\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 502",
+     "code": "502",
+     "img": "cr502.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 20\" × 16\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "502"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "20\" × 16\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 503",
+     "code": "503",
+     "img": "cr503.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 18\" × 14\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "503"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "18\" × 14\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 504",
+     "code": "504",
+     "img": "cr504.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 18\" × 12\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "504"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "18\" × 12\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 505",
+     "code": "505",
+     "img": "cr505.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 18\" × 12\" Square",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "505"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "18\" × 12\" Square"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 506",
+     "code": "506",
+     "img": "cr506.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 18\" × 13\" Square",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "506"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "18\" × 13\" Square"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 507",
+     "code": "507",
+     "img": "cr507.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 18\" × 13\" Round",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "507"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "18\" × 13\" Round"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 508",
+     "code": "508",
+     "img": "cr508.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 17\" × 12\" Round",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "508"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "17\" × 12\" Round"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 509",
+     "code": "509",
+     "img": "cr509.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 16\" × 16\" Corner",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "509"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "16\" × 16\" Corner"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 510",
+     "code": "510",
+     "img": "cr510.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 16\" × 12\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "510"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "16\" × 12\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 511",
+     "code": "511",
+     "img": "cr511.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 14\" × 11\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "511"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "14\" × 11\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Wash Basin 512",
+     "code": "512",
+     "img": "cr512.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Wash Basin · 12\" × 9\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "512"
+      ],
+      [
+       "Type",
+       "Wash Basin"
+      ],
+      [
+       "Size",
+       "12\" × 9\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Vitrossa Wash Basin",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "1301",
+       "color": "Design 1",
+       "img": "cr1301.jpg"
+      },
+      {
+       "code": "1302",
+       "color": "Design 2",
+       "img": "cr1302.jpg"
+      },
+      {
+       "code": "1303",
+       "color": "Design 3",
+       "img": "cr1303.jpg"
+      },
+      {
+       "code": "1304",
+       "color": "Design 4",
+       "img": "cr1304.jpg"
+      },
+      {
+       "code": "1305",
+       "color": "Design 5",
+       "img": "cr1305.jpg"
+      },
+      {
+       "code": "1306",
+       "color": "Design 6",
+       "img": "cr1306.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Wash Basin · 6 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Wash Basin · 6 designs",
+     "about": "Vitrossa Wash Basin is a coloured designer wash basin.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Vitrossa Wash Basin"
+      ],
+      [
+       "Type",
+       "Coloured Wash Basin"
+      ],
+      [
+       "Designs",
+       "6 (codes 1301 – 1306)"
+      ],
+      [
+       "Size",
+       "18\" × 12\""
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Table Top",
+   "items": [
+    {
+     "name": "Table Top 601",
+     "code": "601",
+     "img": "cr601.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Table Top Basin · L406 × W406 × H120 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "601"
+      ],
+      [
+       "Type",
+       "Table Top Basin"
+      ],
+      [
+       "Size",
+       "L406 × W406 × H120 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Table Top 602",
+     "code": "602",
+     "img": "cr602.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Table Top Basin · L480 × W470 × H120 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "602"
+      ],
+      [
+       "Type",
+       "Table Top Basin"
+      ],
+      [
+       "Size",
+       "L480 × W470 × H120 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Table Top 603",
+     "code": "603",
+     "img": "cr603.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Table Top Basin · L330 × W330 × H152 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "603"
+      ],
+      [
+       "Type",
+       "Table Top Basin"
+      ],
+      [
+       "Size",
+       "L330 × W330 × H152 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Table Top 604",
+     "code": "604",
+     "img": "cr604.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Table Top Basin · L500 × W300 × H140 mm",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "604"
+      ],
+      [
+       "Type",
+       "Table Top Basin"
+      ],
+      [
+       "Size",
+       "L500 × W300 × H140 mm"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Hydrographic Table Top",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "basin",
+     "variants": [
+      {
+       "code": "1401",
+       "color": "Design 1",
+       "img": "cr1401.jpg"
+      },
+      {
+       "code": "1402",
+       "color": "Design 2",
+       "img": "cr1402.jpg"
+      },
+      {
+       "code": "1403",
+       "color": "Design 3",
+       "img": "cr1403.jpg"
+      },
+      {
+       "code": "1404",
+       "color": "Design 4",
+       "img": "cr1404.jpg"
+      },
+      {
+       "code": "1405",
+       "color": "Design 5",
+       "img": "cr1405.jpg"
+      },
+      {
+       "code": "1406",
+       "color": "Design 6",
+       "img": "cr1406.jpg"
+      },
+      {
+       "code": "1407",
+       "color": "Design 7",
+       "img": "cr1407.jpg"
+      },
+      {
+       "code": "1408",
+       "color": "Design 8",
+       "img": "cr1408.jpg"
+      },
+      {
+       "code": "1409",
+       "color": "Design 9",
+       "img": "cr1409.jpg"
+      }
+     ],
+     "spec": "Crera · Marble-look Table Top Basin · 9 designs · All colours as per colour chart",
+     "desc": "Crera · Marble-look Table Top Basin · 9 designs",
+     "about": "Hydrographic Table Top basins come in marble-look finishes in several shapes.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Hydrographic Table Top"
+      ],
+      [
+       "Type",
+       "Marble-look Table Top Basin"
+      ],
+      [
+       "Designs",
+       "9 (codes 1401 – 1409)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Orissa Pan",
+   "items": [
+    {
+     "name": "Orissa Pan 20\"",
+     "code": "701",
+     "img": "cr701.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "701"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "C.T. Pan 20\"",
+     "code": "702",
+     "img": "cr702.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "702"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Full Deep Pan 21\"",
+     "code": "703",
+     "img": "cr703.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "703"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Aquapressure Pan 21\"",
+     "code": "704",
+     "img": "cr704.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "704"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Orissa Pan 23\"",
+     "code": "705",
+     "img": "cr705.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "705"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Full Deep Pan 23\"",
+     "code": "706",
+     "img": "cr706.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "706"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "M.D. Pan 20\"",
+     "code": "707",
+     "img": "cr707.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "707"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Estern Pan 20\"",
+     "code": "708",
+     "img": "cr708.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Orissa Pan",
+     "icon": "pan",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "708"
+      ],
+      [
+       "Type",
+       "Orissa Pan"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Double Colour Orissa Pan",
+     "tag": "Crera",
+     "thumbs": true,
+     "icon": "pan",
+     "variants": [
+      {
+       "code": "1501",
+       "color": "Design 1",
+       "img": "cr1501.jpg"
+      },
+      {
+       "code": "1502",
+       "color": "Design 2",
+       "img": "cr1502.jpg"
+      },
+      {
+       "code": "1503",
+       "color": "Design 3",
+       "img": "cr1503.jpg"
+      },
+      {
+       "code": "1504",
+       "color": "Design 4",
+       "img": "cr1504.jpg"
+      },
+      {
+       "code": "1505",
+       "color": "Design 5",
+       "img": "cr1505.jpg"
+      },
+      {
+       "code": "1506",
+       "color": "Design 6",
+       "img": "cr1506.jpg"
+      }
+     ],
+     "spec": "Crera · Coloured Orissa Pan · 6 designs · All colours as per colour chart",
+     "desc": "Crera · Coloured Orissa Pan · 6 designs",
+     "about": "Double Colour Orissa Pan in bright colours with pattern finish.",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Series",
+       "Double Colour Orissa Pan"
+      ],
+      [
+       "Type",
+       "Coloured Orissa Pan"
+      ],
+      [
+       "Designs",
+       "6 (codes 1501 – 1506)"
+      ]
+     ],
+     "perks": [
+      "All colours available as per colour chart"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Urinal & Accessories",
+   "items": [
+    {
+     "name": "Half Stall Urinal",
+     "code": "1701",
+     "img": "cr1701.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Urinal",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1701"
+      ],
+      [
+       "Type",
+       "Urinal"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Gents Urinal",
+     "code": "1702",
+     "img": "cr1702.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Urinal",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1702"
+      ],
+      [
+       "Type",
+       "Urinal"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Mini Half Stall Urinal",
+     "code": "1703",
+     "img": "cr1703.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Urinal",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1703"
+      ],
+      [
+       "Type",
+       "Urinal"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Ladies Urinal",
+     "code": "1704",
+     "img": "cr1704.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Urinal",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1704"
+      ],
+      [
+       "Type",
+       "Urinal"
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Sink 001 (20×14×7)",
+     "code": "1705",
+     "img": "cr1705.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Sink · 20\" × 14\" × 7\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1705"
+      ],
+      [
+       "Type",
+       "Sink"
+      ],
+      [
+       "Size",
+       "20\" × 14\" × 7\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Sink 001 (24×18×10)",
+     "code": "1706",
+     "img": "cr1706.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Sink · 24\" × 18\" × 10\"",
+     "icon": "commode",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Code",
+       "1706"
+      ],
+      [
+       "Type",
+       "Sink"
+      ],
+      [
+       "Size",
+       "24\" × 18\" × 10\""
+      ]
+     ],
+     "chart": true
+    },
+    {
+     "name": "Footrest",
+     "img": "crfootrest.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Accessory",
+     "icon": "acc",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Type",
+       "Accessory"
+      ]
+     ]
+    },
+    {
+     "name": "One Piece Fitting",
+     "img": "crfitting.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Accessory",
+     "icon": "acc",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Type",
+       "Accessory"
+      ]
+     ]
+    },
+    {
+     "name": "EWC Seat Cover",
+     "img": "crseat.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Accessory",
+     "icon": "acc",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Type",
+       "Accessory"
+      ]
+     ]
+    },
+    {
+     "name": "Side Flush Tank",
+     "img": "crtank.jpg",
+     "tag": "Crera",
+     "desc": "Crera · Accessory",
+     "icon": "acc",
+     "specs": [
+      [
+       "Brand",
+       "Crera"
+      ],
+      [
+       "Type",
+       "Accessory"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "offers": [
+  {
+   "k": "Bulk",
+   "title": "Contractor, Plumber ও Builder-দের বিশেষ রেট",
+   "sub": "বড় অর্ডারে আলাদা Quotation"
+  },
+  {
+   "k": "Set",
+   "title": "পুরো Bathroom Set একসাথে নিলে কম দাম",
+   "sub": "Commode, Basin, Tap ও Shower"
+  },
+  {
+   "k": "Tiles",
+   "title": "Floor ও Wall Tiles একসাথে নিলে বিশেষ ছাড়",
+   "sub": "Sq.ft হিসাব আমরা করে দেব"
+  }
+ ],
+ "colours": [
+  {
+   "g": "Running",
+   "c": [
+    [
+     "White",
+     "#ffffff"
+    ],
+    [
+     "T.Blue",
+     "#a0ddfa"
+    ],
+    [
+     "Green",
+     "#b6dbaf"
+    ],
+    [
+     "Pink",
+     "#fcd2c2"
+    ],
+    [
+     "Ivory",
+     "#fffcd7"
+    ],
+    [
+     "Grey",
+     "#d0d9de"
+    ],
+    [
+     "Red Brown",
+     "#935723"
+    ],
+    [
+     "Coffee Brown",
+     "#683323"
+    ]
+   ]
+  },
+  {
+   "g": "Special",
+   "c": [
+    [
+     "Magenta",
+     "#e0a7ae"
+    ],
+    [
+     "Soronto Blue",
+     "#a2bae0"
+    ],
+    [
+     "Aqua Green",
+     "#98d4c8"
+    ],
+    [
+     "Mint Green",
+     "#bcce5e"
+    ]
+   ]
+  },
+  {
+   "g": "Super Special",
+   "c": [
+    [
+     "Burgundy",
+     "#7c3440"
+    ],
+    [
+     "Walker Yellow",
+     "#f3c36f"
+    ],
+    [
+     "Black",
+     "#000000"
+    ]
+   ]
+  },
+  {
+   "g": "Exclusive",
+   "c": [
+    [
+     "Orange",
+     "#f47822"
+    ],
+    [
+     "Red",
+     "#ed1b24"
+    ]
+   ]
+  },
+  {
+   "g": "Rustic",
+   "c": [
+    [
+     "Oasis Green",
+     "#106244"
+    ],
+    [
+     "Red Brown",
+     "#875c3c"
+    ],
+    [
+     "Black",
+     "#2d313a"
+    ],
+    [
+     "Magenta",
+     "#864349"
+    ],
+    [
+     "Alpine Blue",
+     "#475292"
+    ],
+    [
+     "Coffee Brown",
+     "#5f3827"
+    ]
+   ]
+  }
+ ]
+}
+</script>
+<script>
+const PHONE="918926528460";
+const S='fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"';
+const I={
+ commode:`<svg viewBox="0 0 32 32" ${S}><path d="M9 4h10v10H9zM6 15h20c0 5-3.5 8-8 8.6L19 28h-8l1-4.4C8.5 23 6 20 6 15Z"/></svg>`,
+ basin:`<svg viewBox="0 0 32 32" ${S}><path d="M4 13h24c0 6-5 9-12 9S4 19 4 13ZM16 22v7M12 29h8M16 13V8h4"/></svg>`,
+ pan:`<svg viewBox="0 0 32 32" ${S}><ellipse cx="16" cy="17" rx="10" ry="6"/><ellipse cx="16" cy="18" rx="4" ry="2"/></svg>`,
+ tile:`<svg viewBox="0 0 32 32" ${S}><path d="M4 4h11v11H4zM17 4h11v11H17zM4 17h11v11H4zM17 17h11v11H17z"/></svg>`,
+ tile3d:`<svg viewBox="0 0 32 32" ${S}><path d="M16 3l11 6v14l-11 6-11-6V9z M16 15l11-6 M16 15v14 M16 15L5 9"/></svg>`,
+ tap:`<svg viewBox="0 0 32 32" ${S}><path d="M5 11h15a6 6 0 0 1 6 6v3M13 11V6M9 6h8M26 24v2"/></svg>`,
+ shower:`<svg viewBox="0 0 32 32" ${S}><path d="M7 29V8a4 4 0 0 1 8 0M10 13h11l-1.5-4h-8z M12 17v1M15.5 17v2M19 17v1M14 22v1M17 22v1"/></svg>`,
+ acc:`<svg viewBox="0 0 32 32" ${S}><path d="M5 9h22M8 9v3M24 9v3M10 17h12v10H10z"/></svg>`,
+ pipe:`<svg viewBox="0 0 32 32" ${S}><path d="M3 11h14v16M3 17h8v10M17 11h4M11 27h10"/></svg>`,
+ tool:`<svg viewBox="0 0 32 32" ${S}><path d="M20 4a7 7 0 0 0-5.5 9.5L5 23l4 4 9.5-9.5A7 7 0 0 0 28 12l-4 1.5-3-3z"/></svg>`,
+ lock:`<svg viewBox="0 0 32 32" ${S}><path d="M8 14h16v14H8zM11 14v-4a5 5 0 0 1 10 0v4M16 19v4"/></svg>`
+};
+const DATA=JSON.parse(document.getElementById("catalog").textContent);
+const CATS=Object.fromEntries(DATA.categories.map(c=>[c.name,c.items]));
+const FEAT=DATA.featured;
+const qty={}; let active=DATA.categories[0].name;
+const $=s=>document.querySelector(s);
+const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+const slug=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+const sel={};
+const curV=p=>p.variants[sel[p.name]||0];
+const vkey=(p,v)=>`${p.name} – ${v.color} (Code ${v.code})`;
+const askMsg=k=>"নমস্কার Appayan Hardware & Tiles, এই Product-টির দাম জানতে চাই: "+k;
+$("#rail").innerHTML=FEAT.map((f,fi)=>{
+  const v=f.variants?curV(f):null;
+  const n=f.name,c=v?`Code ${v.code}`:(f.code?`Code ${f.code}`:(f.tag||"Designer")),key=v?vkey(f,v):(f.code?`${n} (Code ${f.code})`:n);
+  const img=v?v.img:f.img;
+  const sw=v&&f.thumbs?`<p class="spec">${f.spec}</p><div class="vname">${f.variants.length} টি design · ${v.color}</div>`:v?`<p class="spec">${f.spec}</p><div class="sw" role="group" aria-label="রং বাছুন">${f.variants.map((x,i)=>`<button type="button" class="dot${i===(sel[f.name]||0)?" on":""}" data-vi="${i}" data-vn="${f.name}" style="--c:${x.hex}" aria-label="${x.color}"></button>`).join("")}</div><div class="vname">${v.color}</div>`:"";
+  return `<article class="fcard" data-fi="${fi}"><div class="ph" data-open="${slug(f.name)}" role="button" tabindex="0" aria-label="${n} বিস্তারিত"><img src="${img}" alt="${n}" loading="lazy"><span class="tag">${c}</span><span class="more">বিস্তারিত ›</span></div>
+  <div class="b"><h3 data-open="${slug(f.name)}">${n}</h3>${sw}<div class="acts">
+   <button type="button" class="btn ghost" data-f="${key}">+ Quotation</button>
+   <a class="btn gold" target="_blank" rel="noopener" href="${wa(askMsg(key))}">দাম জানুন</a>
+  </div></div></article>`}).join("");
+function updateFeat(card){
+  const f=FEAT[+card.dataset.fi],v=curV(f),key=vkey(f,v);
+  card.querySelector("img").src=v.img;card.querySelector(".tag").textContent=`Code ${v.code}`;
+  card.querySelector(".vname").textContent=(f.thumbs?`${f.variants.length} টি design · `:"")+v.color;card.querySelector("[data-f]").dataset.f=key;
+  card.querySelector("a.btn").href=wa(askMsg(key));
+  card.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("on",i===(sel[f.name]||0)));
+}
+$("#offerList").innerHTML=DATA.offers.map(o=>`<div class="offer"><div class="k">${o.k}</div><div><b>${o.title}</b><small>${o.sub||""}</small></div></div>`).join("");
+$("#dots").innerHTML=FEAT.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("");
+$("#rail").addEventListener("scroll",()=>{const r=$("#rail"),c=r.querySelector(".fcard");if(!c)return;
+  const i=Math.round(r.scrollLeft/(c.offsetWidth+14));document.querySelectorAll("#dots i").forEach((d,j)=>d.classList.toggle("on",j===i))},{passive:true});
+$("#rail").addEventListener("click",e=>{const d=e.target.closest(".dot");if(d){sel[d.dataset.vn]=+d.dataset.vi;updateFeat(d.closest(".fcard"));return}
+  const o=e.target.closest("[data-open]");if(o){openPD(o.dataset.open);return}
+  const b=e.target.closest("button[data-f]");if(!b)return;
+  qty[b.dataset.f]=(qty[b.dataset.f]||0)+1;sync();toast(`Quotation-এ যোগ হলো · ${qty[b.dataset.f]}`)});
+
+function renderTabs(){$("#tabs").innerHTML=Object.keys(CATS).map(c=>`<button type="button" aria-pressed="${c===active}" data-c="${c}">${c}</button>`).join("")}
+function renderList(){
+  $("#list").innerHTML=CATS[active].map(it=>{
+    const v=it.variants?curV(it):null;
+    const n=v?vkey(it,v):(it.code?`${it.name} (Code ${it.code})`:it.name),q=qty[n]||0;
+    const dk=(it.variants||it.img)?` data-open="${slug(it.name)}"`:"";
+    const vis=v?`<img class="thumb"${dk} src="${v.img}" alt="${it.name} ${v.color}" loading="lazy">`:(it.img?`<img class="thumb"${dk} src="${it.img}" alt="" loading="lazy">`:(I[it.icon]||I.acc));
+    const code=v?v.code:it.code;
+    const sw=v&&it.thumbs?`<div class="mstrip" role="group" aria-label="Design বাছুন">${it.variants.slice(0,5).map((x,i)=>`<button type="button" class="${i===(sel[it.name]||0)?"on":""}" data-vi="${i}" data-vn="${it.name}" aria-label="${x.code}"><img src="${x.img}" alt="" loading="lazy"></button>`).join("")}${it.variants.length>5?`<span>+${it.variants.length-5}</span>`:""}</div>`:it.chart?`<div class="cdots" aria-label="রং পাওয়া যায়">${DATA.colours[0].c.map(x=>`<i style="--c:${x[1]}"></i>`).join("")}<span>+${DATA.colours.reduce((a,g)=>a+g.c.length,0)-DATA.colours[0].c.length} রং</span></div>`:v?`<div class="sw sm" role="group" aria-label="রং বাছুন">${it.variants.map((x,i)=>`<button type="button" class="dot${i===(sel[it.name]||0)?" on":""}" data-vi="${i}" data-vn="${it.name}" style="--c:${x.hex}" aria-label="${x.color}"></button>`).join("")}</div>`:"";
+    return `<div class="it">${vis}<div class="t"><h3${dk}>${it.name}${code?` <span class="cd">${code}${v?" · "+v.color:""}</span>`:""}</h3><p>${it.desc||""}</p>${sw}</div><div class="qty">${q
+      ?`<button type="button" data-m="${n}" aria-label="কমান">−</button><output>${q}</output><button type="button" data-p="${n}" aria-label="বাড়ান">+</button>`
+      :`<button type="button" class="add" data-p="${n}">যোগ করুন</button>`}</div></div>`}).join("")}
+const picked=()=>Object.entries(qty).filter(([,v])=>v>0);
+function message(){
+  const p=picked(),who=document.querySelector('input[name="who"]:checked').value;
+  let m="নমস্কার Appayan Hardware & Tiles,\nআমি Quotation চাই।\n";
+  if(p.length)m+="\nProduct:\n"+p.map(([n,v])=>`• ${n} × ${v}`).join("\n")+"\n";
+  const name=$("#name").value.trim(),place=$("#place").value.trim(),msg=$("#msg").value.trim();
+  if(name)m+=`\nনাম: ${name}`; if(place)m+=`\nজায়গা: ${place}`; m+=`\nকার জন্য: ${who}`; if(msg)m+=`\n\n${msg}`;
+  return m}
+function sync(){
+  const p=picked(),total=p.reduce((a,[,v])=>a+v,0);
+  $("#count").innerHTML=p.length?`<b>${p.length}টি Product · ${total} পিস</b>Quotation-এর জন্য তৈরি`:`<b>Quotation</b>Product বেছে নিন বা সরাসরি জিজ্ঞাসা করুন`;
+  $("#basket").innerHTML=p.length?`<span class="eyebrow">আপনার বাছাই</span><ul>${p.map(([n,v])=>`<li>${n} × ${v}</li>`).join("")}</ul>`
+    :`<span class="empty">Collection বা Catalogue থেকে Product বাছলে এখানে দেখাবে।</span>`;
+  $("#barWa").href=wa(message())}
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(el._t);el._t=setTimeout(()=>el.hidden=true,2400)}
+
+$("#heroWa").href=wa("নমস্কার Appayan Hardware & Tiles, আমি কিছু Product-এর দাম জানতে চাই।");
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;active=b.dataset.c;renderTabs();renderList()});
+$("#list").addEventListener("click",e=>{const o=e.target.closest("[data-open]");if(o){openPD(o.dataset.open);return}
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.vi!==undefined){sel[b.dataset.vn]=+b.dataset.vi;renderList();return}
+  if(b.dataset.p)qty[b.dataset.p]=(qty[b.dataset.p]||0)+1;
+  if(b.dataset.m)qty[b.dataset.m]=Math.max(0,(qty[b.dataset.m]||0)-1);
+  renderList();sync()});
+$("#form").addEventListener("input",sync);
+$("#form").addEventListener("submit",e=>{e.preventDefault();sync();
+  const a=document.createElement("a");a.href=$("#barWa").href;a.target="_blank";a.rel="noopener";a.click();
+  toast("WhatsApp খুলছে")});
+$("#copyBtn").addEventListener("click",()=>{
+  navigator.clipboard.writeText("8926528460").then(()=>toast("নম্বর Copy হয়েছে"))
+  .catch(()=>{const r=document.createRange();r.selectNodeContents($("#phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("নম্বর সিলেক্ট করা আছে")})});
+const hdr=$("#top");addEventListener("scroll",()=>hdr.classList.toggle("solid",scrollY>60),{passive:true});
+
+/* product page */
+const PROD={};
+FEAT.forEach(f=>{PROD[slug(f.name)]={p:f,cat:"Designer Collection"}});
+DATA.categories.forEach(c=>c.items.forEach(it=>{if(it.variants||it.img){const k=slug(it.name);PROD[k]=PROD[k]||{p:it};PROD[k].cat=c.name}}));
+let pdKey=null;
+const keyOf=(p,v)=>v?vkey(p,v):(p.code?`${p.name} (Code ${p.code})`:p.name);
+const slidesOf=p=>p.variants?p.variants.map(v=>v.img):(p.imgs||[p.img]);
+function renderPD(){
+  const {p}=PROD[pdKey],sl=slidesOf(p),idx=p.variants?(sel[p.name]||0):0;
+  $("#pdBody").innerHTML=`<div class="pd-ph"><div class="pd-track" id="pdTrack" aria-label="ছবি স্লাইড">${sl.map((u,i)=>`<img src="${u}" alt="${p.name}${p.variants?" "+p.variants[i].color:""}"${i?' loading="lazy"':""}>`).join("")}</div>${sl.length>1?`<button type="button" class="pd-nav prev" data-nav="-1" aria-label="আগের ছবি">‹</button><button type="button" class="pd-nav next" data-nav="1" aria-label="পরের ছবি">›</button><div class="pd-dots">${sl.map((_,i)=>`<i class="${i===idx?"on":""}"></i>`).join("")}</div>`:""}</div><div class="pd-in" id="pdInfo"></div>`;
+  renderInfo();
+  const t=$("#pdTrack");t.scrollLeft=idx*t.clientWidth;
+  let tm;t.addEventListener("scroll",()=>{const i=Math.round(t.scrollLeft/t.clientWidth);
+    document.querySelectorAll(".pd-dots i").forEach((d,j)=>d.classList.toggle("on",j===i));
+    clearTimeout(tm);tm=setTimeout(()=>{t._tgt=undefined;if(p.variants&&(sel[p.name]||0)!==i){sel[p.name]=i;renderInfo()}},120)},{passive:true});
+}
+function goSlide(i){const t=$("#pdTrack");if(t){t._tgt=i;t.scrollTo({left:i*t.clientWidth,behavior:"smooth"})}}
+function renderInfo(){
+  const {p,cat}=PROD[pdKey],v=p.variants?curV(p):null,code=v?v.code:p.code,key=keyOf(p,v),q=qty[key]||0;
+  const rel=Object.entries(PROD).filter(([k])=>k!==pdKey).slice(0,6).map(([k,r])=>`<button type="button" class="rel" data-rel="${k}"><img src="${r.p.variants?r.p.variants[0].img:r.p.img}" alt="" loading="lazy"><span>${r.p.name}</span></button>`).join("");
+  $("#pdInfo").innerHTML=`<div class="eyebrow">${cat}${p.tag&&!p.variants&&p.tag!==cat?" · "+p.tag:""}</div>
+   <h2>${p.name}</h2>${p.badge?`<span class="pd-badge">${p.badge}</span>`:""}${code?`<div class="pd-code">Code ${code}${v?" · "+v.color:""}</div>`:""}
+   ${p.variants&&p.thumbs?`<div class="vthumbs" role="group" aria-label="Design বাছুন">${p.variants.map((x,i)=>`<button type="button" class="vt${i===(sel[p.name]||0)?" on":""}" data-vi="${i}" data-vn="${p.name}" aria-label="${x.code} ${x.color}"><img src="${x.img}" alt="" loading="lazy"><span>${x.code}</span></button>`).join("")}</div>`:p.variants?`<div class="vchips" role="group" aria-label="রং বাছুন">${p.variants.map((x,i)=>`<button type="button" class="vchip${i===(sel[p.name]||0)?" on":""}" data-vi="${i}" data-vn="${p.name}" style="--c:${x.hex}"><i></i>${x.color}</button>`).join("")}</div>`:""}
+   ${p.about?`<p class="pd-about">${p.about}</p>`:""}
+   ${p.specs?`<div><div class="eyebrow" style="margin-bottom:10px">Specification</div><dl class="specs">${p.specs.map(([a,b])=>`<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl></div>`:""}
+   ${p.chart?`<div><div class="eyebrow" style="margin-bottom:10px">Available Colours</div>${DATA.colours.map(g=>`<div class="cgrp"><b>${g.g}</b><div class="cgrid">${g.c.map(x=>`<div><i style="--c:${x[1]}"></i>${x[0]}</div>`).join("")}</div></div>`).join("")}<p class="cnote">Crera colour chart অনুযায়ী। ছাপার রং আসল থেকে একটু আলাদা হতে পারে; কোন রং স্টকে আছে WhatsApp-এ জিজ্ঞাসা করুন।</p></div>`:""}
+   ${p.features?`<div><div class="eyebrow" style="margin-bottom:10px">Features</div><div class="feats">${p.features.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("")}</div></div>`:""}
+   ${p.perks?`<div class="perks">${p.perks.map(x=>`<span>${x}</span>`).join("")}</div>`:""}
+   ${p.tagline?`<div class="pd-tag">${p.tagline}</div>`:""}
+   <p class="pd-note">দাম ও স্টক জানতে নিচের বোতামে WhatsApp করুন।</p>
+   ${rel?`<div><div class="eyebrow" style="margin-bottom:10px">আরও দেখুন</div><div class="pd-rel">${rel}</div></div>`:""}`;
+  $("#pdAdd").dataset.f=key;$("#pdAdd").textContent=q?`+ Quotation (${q})`:"+ Quotation";
+  $("#pdAsk").href=wa(askMsg(key));
+  const st=$("#pdInfo .vthumbs"),on=st&&st.querySelector(".vt.on");if(on)st.scrollLeft=on.offsetLeft-st.clientWidth/2+on.offsetWidth/2;
+}
+function openPD(k,push=true){
+  if(!PROD[k])return;pdKey=k;const el=$("#pd");el.hidden=false;el.scrollTop=0;document.body.style.overflow="hidden";renderPD();
+  if(push){try{location.hash="p-"+k}catch(e){}}
+}
+function closePD(){
+  if($("#pd").hidden)return;$("#pd").hidden=true;document.body.style.overflow="";pdKey=null;
+  try{if(location.hash.startsWith("#p-"))history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+  document.querySelectorAll("#rail .fcard").forEach(c=>{if(FEAT[+c.dataset.fi].variants)updateFeat(c)});
+  renderList();sync();
+}
+$("#pd").addEventListener("click",e=>{
+  if(e.target.closest("#pdX")){closePD();return}
+  const nv=e.target.closest("[data-nav]");if(nv){const t=$("#pdTrack"),n=t.children.length,i=(t._tgt!==undefined?t._tgt:Math.round(t.scrollLeft/t.clientWidth))+(+nv.dataset.nav);goSlide(Math.max(0,Math.min(n-1,i)));return}
+  const c=e.target.closest(".vchip, .vt");if(c){sel[c.dataset.vn]=+c.dataset.vi;renderInfo();goSlide(+c.dataset.vi);return}
+  const r=e.target.closest("[data-rel]");if(r){openPD(r.dataset.rel);$("#pd").scrollTop=0;return}
+  const a=e.target.closest("#pdAdd");if(a){const k=a.dataset.f;qty[k]=(qty[k]||0)+1;sync();renderInfo();toast(`Quotation-এ যোগ হলো · ${qty[k]}`)}
+});
+$("#rail").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".ph[data-open]")){e.preventDefault();openPD(e.target.dataset.open)}});
+addEventListener("keydown",e=>{if(e.key==="Escape")closePD()});
+addEventListener("hashchange",()=>{const h=location.hash;
+  if(h.startsWith("#p-")){const k=h.slice(3);if(PROD[k]&&k!==pdKey)openPD(k,false)}
+  else if(!$("#pd").hidden)closePD()});
+if(location.hash.startsWith("#p-")&&PROD[location.hash.slice(3)])openPD(location.hash.slice(3),false);
+renderTabs();renderList();sync();
+</script>
